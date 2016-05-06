@@ -7,6 +7,7 @@
 #include <QMediaPlayer>
 #include <QTimer>
 #include <QGraphicsPixmapItem>
+#include <QKeyEvent>
 #include "SheetMusic.h"
 #include "SheetMusicPlayer.h"
 
@@ -19,11 +20,15 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
     public:
         PlayEngine(string oveName);
 
+        void keyPressEvent(QKeyEvent * event);
+
         void readSheetMusic();
         void playSheetMusic();
 
         SheetMusic sheetMusic;
         SheetMusicPlayer * sheetMusicPlayer;
+
+
 
     private:
         QTimer * moveTimer;
@@ -33,6 +38,10 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
 
     public slots:
         void spawnDongKa(int type);
+        void spawnGrade(int grade);
+
+    signals:
+        void hitKey(int);
 };
 
 #endif // PLAYENGINE_H

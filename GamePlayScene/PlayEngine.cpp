@@ -1,4 +1,5 @@
 #include <QDebug>
+#include <QSound>
 #include <QFileInfo>
 #include <iostream>
 #include <fstream>
@@ -6,6 +7,9 @@
 #include "PlayEngine.h"
 #include "Dong.h"
 #include "Ka.h"
+#include "IconBad.h"
+#include "IconGood.h"
+#include "IconGreat.h"
 
 using namespace std;
 
@@ -26,6 +30,24 @@ PlayEngine::PlayEngine(string oveName)
 
 }
 
+void PlayEngine::keyPressEvent(QKeyEvent *event)
+{
+    if( event->key()==Qt::Key_F)
+    {
+        qDebug()<<"you pressed F !";
+        emit hitKey(0);
+        //playView->drum->setSmall();
+        QSound::play("./GameData/DefaultResources/sounds/dong.wav");
+    }
+    else if( event->key()==Qt::Key_K )
+    {
+        qDebug()<<"you pressed K !";
+        emit hitKey(1);
+        //playView->drum->setSmall();
+        QSound::play("./GameData/DefaultResources/sounds/ka.wav");
+    }
+}
+
 void PlayEngine::readSheetMusic()
 {
     string ovePath = "./GameData/Oves/" + inputOve + "/ove.txt";
@@ -43,6 +65,12 @@ void PlayEngine::readSheetMusic()
 
     inputOve>>BPM;
 
+    int delayAdjust;
+
+    inputOve>>delayAdjust;
+
+    qDebug()<<"這首歌的延遲調整是"<<delayAdjust;
+
     float speedFactor = (float) 60 / (BPM*2);//每個八分音符的時間長度
 
     qDebug()<<"這首歌的BPM為"<<BPM;
@@ -54,7 +82,7 @@ void PlayEngine::readSheetMusic()
         {
             qDebug()<<"第"<<i<<"個拍子數是"<<foo;
             //sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + 10370;
-            sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + 10375;
+            sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + delayAdjust;
             //10550後面會有一點問題，之後在改譜面
         }
         else
@@ -99,5 +127,27 @@ void PlayEngine::spawnDongKa(int type)
         Ka * ka = new Ka();
         scene()->addItem(ka);
         connect( moveTimer , SIGNAL(timeout()) , ka , SLOT(move()) );
+    }
+}
+
+void PlayEngine::spawnGrade(int grade)
+{
+    if(grade==0)
+    {
+        qDebug()<<"spawn不可";
+        IconBad * bad = new IconBad();
+        scene()->addItem(bad);
+    }
+    else if(grade==1)
+    {
+        qDebug()<<"spawn可";
+        IconGood * good = new IconGood();
+        scene()->addItem(good);
+    }
+    else if(grade==2)
+    {
+        qDebug()<<"spawn良";
+        IconGreat * great = new IconGreat();
+        scene()->addItem(great);
     }
 }
