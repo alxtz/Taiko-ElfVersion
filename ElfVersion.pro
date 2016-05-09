@@ -33,7 +33,10 @@ SOURCES += main.cpp \
     GamePlayScene/IconGreat.cpp \
     GamePlayScene/PlayScore.cpp \
     GamePlayScene/Combo.cpp \
-    GamePlayScene/PercentNow.cpp
+    GamePlayScene/PercentNow.cpp \
+    SongChooseScene/SongButton.cpp \
+    SongChooseScene/BackButton.cpp \
+    SongChooseScene/ChildSongButton.cpp
 
 
 HEADERS  += \
@@ -56,5 +59,8 @@ HEADERS  += \
     GamePlayScene/IconGreat.h \
     GamePlayScene/PlayScore.h \
     GamePlayScene/Combo.h \
-    GamePlayScene/PercentNow.h
+    GamePlayScene/PercentNow.h \
+    SongChooseScene/SongButton.h \
+    SongChooseScene/BackButton.h \
+    SongChooseScene/ChildSongButton.h
 

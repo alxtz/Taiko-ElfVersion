@@ -1,4 +1,7 @@
+#include <fstream>
 #include "GameView.h"
+
+using namespace std;
 
 GameView::GameView()
 {
@@ -13,10 +16,20 @@ void GameView::setMainMenu()
     setScene(mainMenu);
 }
 
+void GameView::backToMainMenu()
+{
+    mainMenu = new MainMenu();
+    setScene(mainMenu);
+
+    delete songChoose;
+}
+
 void GameView::setSongMenu()
 {
     songChoose = new SongChoose();
     setScene(songChoose);
+
+    songChoose->loadSongButtons();
 
     delete mainMenu;
 }
@@ -25,4 +38,17 @@ void GameView::setPlayScene(string oveName)
 {
     playScene = new PlayScene(oveName);
     setScene(playScene);
+
+
+    playScene->playEngine->playSheetMusic();
+    playScene->playEngine->playMusic();
+
+    delete songChoose;
+}
+
+void GameView::setLastPlayed(string oveName)
+{
+    ofstream LastSong("./GameData/GameSettings/lastSong.txt" , ios::out);
+
+    LastSong<<oveName;
 }

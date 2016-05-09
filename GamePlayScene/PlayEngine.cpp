@@ -22,12 +22,15 @@ PlayEngine::PlayEngine(string oveName)
 
     cout<<"目前的譜面資料夾名稱是"<<inputOve<<endl;
 
-    playMusic();
+
     readSheetMusic();
     sheetMusicPlayer = new SheetMusicPlayer( & sheetMusic);
     connect(sheetMusicPlayer , SIGNAL(shootDongKa(int)) , this , SLOT(spawnDongKa(int)));
-    playSheetMusic();
 
+    BGMusic = new QMediaPlayer();
+    string musicPath = "./GameData/Oves/" + inputOve + "/song.mp3";
+    QString qMusicPath = QString::fromStdString(musicPath);
+    BGMusic->setMedia(QUrl::fromLocalFile(QFileInfo(qMusicPath).absoluteFilePath()));
 }
 
 void PlayEngine::keyPressEvent(QKeyEvent *event)
@@ -105,11 +108,6 @@ void PlayEngine::playSheetMusic()
 
 void PlayEngine::playMusic()
 {
-    BGMusic = new QMediaPlayer();
-    string musicPath = "./GameData/Oves/" + inputOve + "/song.mp3";
-    QString qMusicPath = QString::fromStdString(musicPath);
-
-    BGMusic->setMedia(QUrl::fromLocalFile(QFileInfo(qMusicPath).absoluteFilePath()));
     BGMusic->play();
 }
 

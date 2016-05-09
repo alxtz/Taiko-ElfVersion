@@ -26,12 +26,13 @@ class PlayScene : public QGraphicsScene
         PlayScore * playScore;
         Combo * combo;
         PercentNow * percentNow;
+        PlayEngine * playEngine;
 
     private:
         string playingOve;
         QGraphicsPixmapItem * songTrack;
 
-        PlayEngine * playEngine;
+
 };
 
 #endif // PLAYSCENE_H

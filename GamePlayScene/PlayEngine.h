@@ -24,6 +24,7 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
 
         void readSheetMusic();
         void playSheetMusic();
+        void playMusic();
 
         SheetMusic sheetMusic;
         SheetMusicPlayer * sheetMusicPlayer;
@@ -34,7 +35,6 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
         QTimer * moveTimer;
         string inputOve;
         QMediaPlayer * BGMusic;
-        void playMusic();
 
     public slots:
         void spawnDongKa(int type);

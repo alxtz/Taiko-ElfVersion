@@ -24,8 +24,10 @@ class GameView : public QGraphicsView
 
     public slots:
         void setMainMenu();
+        void backToMainMenu();
         void setSongMenu();
         void setPlayScene(string oveName);
+        void setLastPlayed(string oveName);
 };
 
 #endif // GAMEVIEW_H
