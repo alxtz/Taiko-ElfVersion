@@ -13,9 +13,9 @@ int main(int argc, char *argv[])
 
     //gameView->setMainMenu();
 
-    gameView->setPlayScene("Together");
+    //gameView->setPlayScene("Together");
 
-    //gameView->setPlayScene("HareHareYukai");
+    gameView->setPlayScene("HareHareYukai");
 
     return a.exec();
 }

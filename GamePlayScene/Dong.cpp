@@ -9,5 +9,5 @@ Dong::Dong()
 
 void Dong::move()
 {
-    setPos( x()-4 , y() );
+    setPos( x()-3 , y() );
 }
