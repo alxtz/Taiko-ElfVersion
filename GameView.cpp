@@ -37,12 +37,9 @@ void GameView::setSongMenu()
 void GameView::setPlayScene(string oveName)
 {
     playScene = new PlayScene(oveName);
-    setScene(playScene);
-
-
     playScene->playEngine->playSheetMusic();
     playScene->playEngine->playMusic();
-
+    setScene(playScene);
     delete songChoose;
 }
 
