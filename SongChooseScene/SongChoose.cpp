@@ -101,19 +101,20 @@ void SongChoose::buttonClicked(int index)
         //removeItem(songButtonList.at(songFocusedIndex)->childSongButton);
         //cout<<"移除"<<songFocusedIndex<<"號的child按鈕"<<endl;
 
-        cout<<"點下了正在focus的按鈕"<<endl;
+        cout<<"點下了正在focus的按鈕，號碼為"<<index<<endl;
         songButtonList.at(index)->setUp();
+
+        emit songButtonList.at(index)->destroyChild();
 
         songButtonList.at(songFocusedIndex)->isDown=false;
 
         songFocusedIndex = -1;
 
-        /*
+
         for(int i= index+1; i< songButtonList.size(); i++)
         {
             songButtonList.at(i)->moveUp(1);
         }
-        */
     }
     else
     {
@@ -124,12 +125,12 @@ void SongChoose::buttonClicked(int index)
             //removeItem(songButtonList.at(songFocusedIndex)->childSongButton);
             //cout<<"移除"<<songFocusedIndex<<"號的child按鈕"<<endl;
 
-            /*
+
+
             for(int i= songFocusedIndex+1; i< songButtonList.size(); i++)
             {
                 songButtonList.at(i)->moveUp(1);
             }
-            */
         }
 
         songFocusedIndex = index;
@@ -142,12 +143,10 @@ void SongChoose::buttonClicked(int index)
             setBackground(songButtonList.at(index)->oveName);
         }
 
-        /*
         for(int i= index+1; i< songButtonList.size(); i++)
         {
             songButtonList.at(i)->moveDown(1);
         }
-        */
     }
 }
 

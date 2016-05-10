@@ -22,7 +22,6 @@ class SongButton : public QObject , public QGraphicsPixmapItem
         bool isDown;
         string oveName;
         QGraphicsTextItem * buttonText;
-        ChildSongButton * childSongButton;
 
         void setDown();
         void setUp();
@@ -30,14 +29,16 @@ class SongButton : public QObject , public QGraphicsPixmapItem
         void moveDown(int unit);
         void moveUp(int unit);
 
-        void hideChildButton();
-
         void mousePressEvent( QGraphicsSceneMouseEvent * event );
         void hoverEnterEvent( QGraphicsSceneHoverEvent * event);
         void hoverLeaveEvent( QGraphicsSceneHoverEvent * event);
 
+    public slots:
+        void gotoPlay();
+
     signals:
         void clicked(int);
+        void destroyChild();
 };
 
 #endif // SONGBUTTON_H

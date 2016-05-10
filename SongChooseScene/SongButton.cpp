@@ -38,8 +38,12 @@ void SongButton::setDown()
 
 void SongButton::setUp()
 {
+    cout<<"setUp"<<endl;
+
     isDown = false;
     setPixmap(QPixmap("./GameData/DefaultResources/images/songButton.png"));
+
+    emit destroyChild();
 }
 
 void SongButton::moveDown(int unit)
@@ -52,18 +56,13 @@ void SongButton::moveUp(int unit)
     setPos( x() , y()-60 );
 }
 
-void SongButton::hideChildButton()
-{
-    //scene()->removeItem(childSongButton);
-}
-
 void SongButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     QSound::play("./GameData/DefaultResources/sounds/ka.wav");
 
-    //childSongButton->parentIndex=index;
-
-    //childSongButton = new ChildSongButton(this);
+    ChildSongButton * childSongButton = new ChildSongButton(this);
+    connect(this , SIGNAL(destroyChild()) , childSongButton , SLOT(destroySelf()));
+    connect(childSongButton , SIGNAL(clicked()) , this , SLOT(gotoPlay()) );
 
     emit clicked(index);
 
@@ -81,4 +80,9 @@ void SongButton::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
     {
         setPixmap(QPixmap("./GameData/DefaultResources/images/songButton.png"));
     }
+}
+
+void SongButton::gotoPlay()
+{
+    gameView->setPlayScene(oveName);
 }
