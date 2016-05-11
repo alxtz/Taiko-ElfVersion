@@ -1,5 +1,8 @@
 #include <fstream>
 #include "GameView.h"
+#include "TestTimer.h"
+
+extern TestTimer timer;
 
 using namespace std;
 
@@ -37,6 +40,7 @@ void GameView::setSongMenu()
 void GameView::setPlayScene(string oveName)
 {
     playScene = new PlayScene(oveName);
+    timer.start();
     playScene->playEngine->playSheetMusic();
     playScene->playEngine->playMusic();
     setScene(playScene);

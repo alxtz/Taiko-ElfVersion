@@ -71,7 +71,8 @@ SOURCES       = main.cpp \
 		GamePlayScene/PercentNow.cpp \
 		SongChooseScene/SongButton.cpp \
 		SongChooseScene/BackButton.cpp \
-		SongChooseScene/ChildSongButton.cpp moc_GameView.cpp \
+		SongChooseScene/ChildSongButton.cpp \
+		TestTimer.cpp moc_GameView.cpp \
 		moc_TaikoIcon.cpp \
 		moc_SoloButton.cpp \
 		moc_SongChoose.cpp \
@@ -114,6 +115,7 @@ OBJECTS       = main.o \
 		SongButton.o \
 		BackButton.o \
 		ChildSongButton.o \
+		TestTimer.o \
 		moc_GameView.o \
 		moc_TaikoIcon.o \
 		moc_SoloButton.o \
@@ -289,7 +291,8 @@ DIST          = ../../Qt/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		GamePlayScene/PercentNow.h \
 		SongChooseScene/SongButton.h \
 		SongChooseScene/BackButton.h \
-		SongChooseScene/ChildSongButton.h main.cpp \
+		SongChooseScene/ChildSongButton.h \
+		TestTimer.h main.cpp \
 		GameView.cpp \
 		StartMenuScene/MainMenu.cpp \
 		SongChooseScene/SongChoose.cpp \
@@ -312,7 +315,8 @@ DIST          = ../../Qt/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		GamePlayScene/PercentNow.cpp \
 		SongChooseScene/SongButton.cpp \
 		SongChooseScene/BackButton.cpp \
-		SongChooseScene/ChildSongButton.cpp
+		SongChooseScene/ChildSongButton.cpp \
+		TestTimer.cpp
 QMAKE_TARGET  = ElfVersion
 DESTDIR       = 
 TARGET        = ElfVersion
@@ -619,8 +623,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents GameView.h StartMenuScene/MainMenu.h StartMenuScene/TaikoIcon.h StartMenuScene/SoloButton.h SongChooseScene/SongChoose.h GamePlayScene/PlayScene.h GamePlayScene/PlayEngine.h GamePlayScene/Note.h GamePlayScene/SheetMusic.h GamePlayScene/SheetMusicPlayer.h GamePlayScene/Dong.h GamePlayScene/Ka.h GamePlayScene/HitPoint.h GamePlayScene/Drum.h GamePlayScene/IconBad.h GamePlayScene/IconGood.h GamePlayScene/IconGreat.h GamePlayScene/PlayScore.h GamePlayScene/Combo.h GamePlayScene/PercentNow.h SongChooseScene/SongButton.h SongChooseScene/BackButton.h SongChooseScene/ChildSongButton.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp GameView.cpp StartMenuScene/MainMenu.cpp SongChooseScene/SongChoose.cpp StartMenuScene/TaikoIcon.cpp StartMenuScene/SoloButton.cpp GamePlayScene/PlayScene.cpp GamePlayScene/PlayEngine.cpp GamePlayScene/Note.cpp GamePlayScene/SheetMusic.cpp GamePlayScene/SheetMusicPlayer.cpp GamePlayScene/Dong.cpp GamePlayScene/Ka.cpp GamePlayScene/HitPoint.cpp GamePlayScene/Drum.cpp GamePlayScene/IconBad.cpp GamePlayScene/IconGood.cpp GamePlayScene/IconGreat.cpp GamePlayScene/PlayScore.cpp GamePlayScene/Combo.cpp GamePlayScene/PercentNow.cpp SongChooseScene/SongButton.cpp SongChooseScene/BackButton.cpp SongChooseScene/ChildSongButton.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents GameView.h StartMenuScene/MainMenu.h StartMenuScene/TaikoIcon.h StartMenuScene/SoloButton.h SongChooseScene/SongChoose.h GamePlayScene/PlayScene.h GamePlayScene/PlayEngine.h GamePlayScene/Note.h GamePlayScene/SheetMusic.h GamePlayScene/SheetMusicPlayer.h GamePlayScene/Dong.h GamePlayScene/Ka.h GamePlayScene/HitPoint.h GamePlayScene/Drum.h GamePlayScene/IconBad.h GamePlayScene/IconGood.h GamePlayScene/IconGreat.h GamePlayScene/PlayScore.h GamePlayScene/Combo.h GamePlayScene/PercentNow.h SongChooseScene/SongButton.h SongChooseScene/BackButton.h SongChooseScene/ChildSongButton.h TestTimer.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp GameView.cpp StartMenuScene/MainMenu.cpp SongChooseScene/SongChoose.cpp StartMenuScene/TaikoIcon.cpp StartMenuScene/SoloButton.cpp GamePlayScene/PlayScene.cpp GamePlayScene/PlayEngine.cpp GamePlayScene/Note.cpp GamePlayScene/SheetMusic.cpp GamePlayScene/SheetMusicPlayer.cpp GamePlayScene/Dong.cpp GamePlayScene/Ka.cpp GamePlayScene/HitPoint.cpp GamePlayScene/Drum.cpp GamePlayScene/IconBad.cpp GamePlayScene/IconGood.cpp GamePlayScene/IconGreat.cpp GamePlayScene/PlayScore.cpp GamePlayScene/Combo.cpp GamePlayScene/PercentNow.cpp SongChooseScene/SongButton.cpp SongChooseScene/BackButton.cpp SongChooseScene/ChildSongButton.cpp TestTimer.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -2481,7 +2485,7 @@ moc_ChildSongButton.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
@@ -2516,6 +2520,7 @@ moc_ChildSongButton.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
 		SongChooseScene/ChildSongButton.h
 	/home/bj/Qt/5.6/gcc_64/bin/moc $(DEFINES) -I/home/bj/Qt/5.6/gcc_64/mkspecs/linux-g++ -I/home/bj/桌面/ElfVersion -I/home/bj/Qt/5.6/gcc_64/include -I/home/bj/Qt/5.6/gcc_64/include/QtMultimedia -I/home/bj/Qt/5.6/gcc_64/include/QtWidgets -I/home/bj/Qt/5.6/gcc_64/include/QtGui -I/home/bj/Qt/5.6/gcc_64/include/QtNetwork -I/home/bj/Qt/5.6/gcc_64/include/QtCore SongChooseScene/ChildSongButton.h -o moc_ChildSongButton.cpp
 
@@ -2700,7 +2705,8 @@ main.o: main.cpp ../../Qt/5.6/gcc_64/include/QtWidgets/QApplication \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
-		GamePlayScene/SheetMusicPlayer.h
+		GamePlayScene/SheetMusicPlayer.h \
+		TestTimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 GameView.o: GameView.cpp GameView.h \
@@ -5176,9 +5182,8 @@ BackButton.o: SongChooseScene/BackButton.cpp ../../Qt/5.6/gcc_64/include/QtMulti
 		GamePlayScene/SheetMusicPlayer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackButton.o SongChooseScene/BackButton.cpp
 
-ChildSongButton.o: SongChooseScene/ChildSongButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
-		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+ChildSongButton.o: SongChooseScene/ChildSongButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/QFont \
+		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
@@ -5213,31 +5218,24 @@ ChildSongButton.o: SongChooseScene/ChildSongButton.cpp ../../Qt/5.6/gcc_64/inclu
 		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
@@ -5246,6 +5244,19 @@ ChildSongButton.o: SongChooseScene/ChildSongButton.cpp ../../Qt/5.6/gcc_64/inclu
 		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/QSound \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qsound.h \
+		../../Qt/5.6/gcc_64/include/QtMultimedia/qtmultimediadefs.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
@@ -5259,7 +5270,7 @@ ChildSongButton.o: SongChooseScene/ChildSongButton.cpp ../../Qt/5.6/gcc_64/inclu
 		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
 		SongChooseScene/ChildSongButton.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
@@ -5267,8 +5278,12 @@ ChildSongButton.o: SongChooseScene/ChildSongButton.cpp ../../Qt/5.6/gcc_64/inclu
 		../../Qt/5.6/gcc_64/include/QtCore/qtextstream.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qlocale.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h
+		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ChildSongButton.o SongChooseScene/ChildSongButton.cpp
+
+TestTimer.o: TestTimer.cpp TestTimer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TestTimer.o TestTimer.cpp
 
 moc_GameView.o: moc_GameView.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_GameView.o moc_GameView.cpp

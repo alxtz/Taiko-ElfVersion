@@ -36,7 +36,8 @@ SOURCES += main.cpp \
     GamePlayScene/PercentNow.cpp \
     SongChooseScene/SongButton.cpp \
     SongChooseScene/BackButton.cpp \
-    SongChooseScene/ChildSongButton.cpp
+    SongChooseScene/ChildSongButton.cpp \
+    TestTimer.cpp
 
 
 HEADERS  += \
@@ -62,5 +63,6 @@ HEADERS  += \
     GamePlayScene/PercentNow.h \
     SongChooseScene/SongButton.h \
     SongChooseScene/BackButton.h \
-    SongChooseScene/ChildSongButton.h
+    SongChooseScene/ChildSongButton.h \
+    TestTimer.h
 

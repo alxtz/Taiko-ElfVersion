@@ -1,7 +1,10 @@
+#include <unistd.h>
 #include <QApplication>
 #include "GameView.h"
+#include "TestTimer.h"
 
 GameView * gameView;
+TestTimer timer;
 
 int main(int argc, char *argv[])
 {
@@ -12,10 +15,6 @@ int main(int argc, char *argv[])
     gameView->show();
 
     gameView->setMainMenu();
-
-    //gameView->setPlayScene("Together");
-
-    //gameView->setPlayScene("HareHareYukai");
 
     return a.exec();
 }
