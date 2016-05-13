@@ -12,7 +12,7 @@ using namespace std;
 
 extern GameView * gameView;
 
-SongButton::SongButton(QString buttonName , string buttonOve)
+SongButton::SongButton(QString buttonName  , QString songOrigin , string buttonOve)
 {
     oveName = buttonOve;
 
@@ -20,8 +20,17 @@ SongButton::SongButton(QString buttonName , string buttonOve)
     QFont buttonTextFont("Helvetica" , 12);
     buttonTextFont.setWeight(75);
     buttonText->setFont(buttonTextFont);
-    buttonText->setPos(5, 5);
+    buttonText->setPos(15, 5);
     buttonText->setDefaultTextColor(QColor(16,138,112));
+
+
+
+    songOriginText = new QGraphicsTextItem(songOrigin , this);
+    QFont originTextFont("Helvetica" , 8);
+    originTextFont.setWeight(70);
+    songOriginText->setFont(originTextFont);
+    songOriginText->setPos(150, 30);
+    songOriginText->setDefaultTextColor(QColor(16,138,112));
 
     isDown = false;
 

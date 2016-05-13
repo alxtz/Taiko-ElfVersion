@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_SheetMusicPlayer_t {
-    QByteArrayData data[4];
-    char stringdata0[36];
+    QByteArrayData data[5];
+    char stringdata0[45];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,10 +32,12 @@ static const qt_meta_stringdata_SheetMusicPlayer_t qt_meta_stringdata_SheetMusic
 QT_MOC_LITERAL(0, 0, 16), // "SheetMusicPlayer"
 QT_MOC_LITERAL(1, 17, 11), // "shootDongKa"
 QT_MOC_LITERAL(2, 29, 0), // ""
-QT_MOC_LITERAL(3, 30, 5) // "spawn"
+QT_MOC_LITERAL(3, 30, 8), // "setSpawn"
+QT_MOC_LITERAL(4, 39, 5) // "spawn"
 
     },
-    "SheetMusicPlayer\0shootDongKa\0\0spawn"
+    "SheetMusicPlayer\0shootDongKa\0\0setSpawn\0"
+    "spawn"
 };
 #undef QT_MOC_LITERAL
 
@@ -45,21 +47,23 @@ static const uint qt_meta_data_SheetMusicPlayer[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x06 /* Public */,
+       1,    1,   29,    2, 0x06 /* Public */,
+       3,    0,   32,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   27,    2, 0x0a /* Public */,
+       4,    0,   33,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
@@ -74,7 +78,8 @@ void SheetMusicPlayer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->shootDongKa((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->spawn(); break;
+        case 1: _t->setSpawn(); break;
+        case 2: _t->spawn(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -84,6 +89,13 @@ void SheetMusicPlayer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
             typedef void (SheetMusicPlayer::*_t)(int );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&SheetMusicPlayer::shootDongKa)) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            typedef void (SheetMusicPlayer::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&SheetMusicPlayer::setSpawn)) {
+                *result = 1;
                 return;
             }
         }
@@ -115,13 +127,13 @@ int SheetMusicPlayer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 3)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }
@@ -131,5 +143,11 @@ void SheetMusicPlayer::shootDongKa(int _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void SheetMusicPlayer::setSpawn()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

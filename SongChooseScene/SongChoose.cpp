@@ -185,9 +185,10 @@ void SongChoose::loadSongButtons()
 
         cout<<"path為"<<songNamePath<<endl;
 
-        string songName;
-
         ifstream inputSongName(songNamePath , ios::in);
+
+        string songName;
+        string songOrigin;
 
         if(!inputSongName)
         {
@@ -195,13 +196,18 @@ void SongChoose::loadSongButtons()
         }
         inputSongName>>songName;
 
+        getline(inputSongName , songOrigin);
+
+
         cout<<"取得一首歌名"<<songName<<endl;
 
+        cout<<"取得一首歌的來源"<<songOrigin<<endl;
+
         QString qSongName= QString::fromStdString(songName);
+        QString qSongOrigin = QString::fromStdString(songOrigin);
 
 
-
-        SongButton * songButton = new SongButton(qSongName , songList.at(i));
+        SongButton * songButton = new SongButton(qSongName , qSongOrigin , songList.at(i));
         songButton->setPos(490 , 110 + 70*i);
         addItem(songButton);
         songButtonList.push_back(songButton);

@@ -2,6 +2,7 @@
 #include <QApplication>
 #include "GameView.h"
 #include "TestTimer.h"
+#include "TestQTimer.h"
 
 GameView * gameView;
 TestTimer timer;
@@ -15,6 +16,11 @@ int main(int argc, char *argv[])
     gameView->show();
 
     gameView->setMainMenu();
+
+    //TestQTimer qTimer;
+
+    //qTimer.start();
+
 
     return a.exec();
 }

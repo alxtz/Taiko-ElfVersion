@@ -16,12 +16,13 @@ class SongButton : public QObject , public QGraphicsPixmapItem
     Q_OBJECT
 
     public:
-        SongButton(QString buttonName , string buttonOve);
+        SongButton(QString buttonName , QString songOrigin , string buttonOve);
 
         int index;
         bool isDown;
         string oveName;
         QGraphicsTextItem * buttonText;
+        QGraphicsTextItem * songOriginText;
 
         void setDown();
         void setUp();

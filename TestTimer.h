@@ -13,8 +13,10 @@ class TestTimer
 
         void start();
         void checkTime();
+        void fromLastTime();
 
     private:
         clock_t startTime;
+        clock_t saveTime;
 };
 #endif // TESTTIMER_H

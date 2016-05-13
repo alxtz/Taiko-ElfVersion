@@ -111,26 +111,29 @@ void PlayEngine::readSheetMusic()
 void PlayEngine::playSheetMusic()
 {
     sheetMusicPlayer->start();
-    cout<<"檢查sheet開始的時間";
-    timer.checkTime();
+    //cout<<"檢查sheet開始的時間";
+    //timer.fromLastTime();
 }
 
 void PlayEngine::playMusic()
 {
     BGMusic->play();
-    cout<<"檢查音樂開始的時間";
-    timer.checkTime();
+    //cout<<"檢查音樂開始的時間";
+    //timer.fromLastTime();
 }
 
 void PlayEngine::spawnDongKa(int type)
 {
+    cout<<"檢查呼叫playEngine的時間";
+    timer.fromLastTime();
+
     if (type==0)
     {
         Dong * dong = new Dong();
         scene()->addItem(dong);
         connect( moveTimer , SIGNAL(timeout()) , dong , SLOT(move()) );
         cout<<"檢查出生的時間";
-        timer.checkTime();
+        timer.fromLastTime();
     }
     else if (type==1)
     {
@@ -138,7 +141,7 @@ void PlayEngine::spawnDongKa(int type)
         scene()->addItem(ka);
         connect( moveTimer , SIGNAL(timeout()) , ka , SLOT(move()) );
         cout<<"檢查出生的時間";
-        timer.checkTime();
+        timer.fromLastTime();
     }
 }
 
