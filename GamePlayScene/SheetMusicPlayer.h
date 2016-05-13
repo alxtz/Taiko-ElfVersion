@@ -22,9 +22,17 @@ class SheetMusicPlayer : public QObject
     public slots:
         void spawn();
 
+        void pause();
+        void resume();
+
     signals:
         void shootDongKa(int);
         void setSpawn();
+
+
+    private:
+        bool justPaused;
+        int remainingTime;
 };
 
 #endif // SHEETMUSICPLAYER_H

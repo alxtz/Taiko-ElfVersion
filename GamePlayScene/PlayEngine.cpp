@@ -23,6 +23,10 @@ PlayEngine::PlayEngine(string oveName)
 
     inputOve =  oveName;
 
+
+    escMenu = new EscMenu();
+    isEsc = false;
+
     cout<<"目前的譜面資料夾名稱是"<<inputOve<<endl;
 
 
@@ -40,21 +44,36 @@ void PlayEngine::keyPressEvent(QKeyEvent *event)
 {
     if( event->key()==Qt::Key_F)
     {
-        //qDebug()<<"you pressed F !";
         emit hitKey(0);
-        //playView->drum->setSmall();
         QSound::play("./GameData/DefaultResources/sounds/dong.wav");
     }
     else if( event->key()==Qt::Key_K )
     {
-        //qDebug()<<"you pressed K !";
         emit hitKey(1);
-        //playView->drum->setSmall();
         QSound::play("./GameData/DefaultResources/sounds/ka.wav");
     }
     else if( event->key()==Qt::Key_Escape )
     {
         qDebug()<<"按下了esc";
+
+        if(isEsc==false)
+        {
+            qDebug()<<"開啟escMenu";
+            scene()->addItem(escMenu);
+            moveTimerPause();
+            BGMusic->pause();
+            isEsc = true;
+            sheetMusicPlayer->pause();
+        }
+        else
+        {
+            qDebug()<<"關閉escMenu";
+            scene()->removeItem(escMenu);
+            moveTimerResume();
+            BGMusic->play();
+            isEsc = false;
+            sheetMusicPlayer->resume();
+        }
     }
 }
 
@@ -78,8 +97,6 @@ void PlayEngine::readSheetMusic()
     int delayAdjust;
 
     inputOve>>delayAdjust;
-
-    //qDebug()<<"這首歌的延遲調整是"<<delayAdjust;
 
     float speedFactor = (float) 60 / (BPM*2);//每個八分音符的時間長度
 
@@ -124,24 +141,24 @@ void PlayEngine::playMusic()
 
 void PlayEngine::spawnDongKa(int type)
 {
-    cout<<"檢查呼叫playEngine的時間";
-    timer.fromLastTime();
+    //cout<<"檢查呼叫playEngine的時間";
+    //timer.fromLastTime();
 
     if (type==0)
     {
         Dong * dong = new Dong();
         scene()->addItem(dong);
         connect( moveTimer , SIGNAL(timeout()) , dong , SLOT(move()) );
-        cout<<"檢查出生的時間";
-        timer.fromLastTime();
+        //cout<<"檢查出生的時間";
+        //timer.fromLastTime();
     }
     else if (type==1)
     {
         Ka * ka = new Ka();
         scene()->addItem(ka);
         connect( moveTimer , SIGNAL(timeout()) , ka , SLOT(move()) );
-        cout<<"檢查出生的時間";
-        timer.fromLastTime();
+        //cout<<"檢查出生的時間";
+        //timer.fromLastTime();
     }
 }
 
@@ -165,4 +182,14 @@ void PlayEngine::spawnGrade(int grade)
         IconGreat * great = new IconGreat();
         scene()->addItem(great);
     }
+}
+
+void PlayEngine::moveTimerPause()
+{
+    moveTimer->stop();
+}
+
+void PlayEngine::moveTimerResume()
+{
+    moveTimer->start(7);
 }

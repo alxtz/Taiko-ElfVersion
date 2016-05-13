@@ -28,7 +28,6 @@ void HitPoint::checkCollision(int type)
             {
                 if( colliding_items[i]->x()>=192 && colliding_items[i]->x()<=205 )
                 {
-                    //qDebug()<<"Great Hit!";
                     emit setGrade(2);
                     emit setAddScore(500);
                     emit setAddCombo();
@@ -36,7 +35,6 @@ void HitPoint::checkCollision(int type)
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
-                    //qDebug()<<"Good Hit!";
                     emit setGrade(1);
                     emit setAddScore(200);
                     emit setAddCombo();
@@ -44,7 +42,6 @@ void HitPoint::checkCollision(int type)
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {
-                    //qDebug()<<"Bad Hit!";
                     emit setGrade(0);
                     emit setEndCombo();
                     emit setHitted(false);
@@ -63,7 +60,6 @@ void HitPoint::checkCollision(int type)
             {
                 if( colliding_items[i]->x()>=192 && colliding_items[i]->x()<=205 )
                 {
-                    //qDebug()<<"Great Hit!";
                     emit setGrade(2);
                     emit setAddScore(500);
                     emit setAddCombo();
@@ -71,7 +67,6 @@ void HitPoint::checkCollision(int type)
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
-                    //Debug()<<"Good Hit!";
                     emit setGrade(1);
                     emit setAddScore(200);
                     emit setAddCombo();
@@ -79,7 +74,6 @@ void HitPoint::checkCollision(int type)
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {
-                    //qDebug()<<"Bad Hit!";
                     emit setGrade(0);
                     emit setEndCombo();
                     emit setHitted(false);

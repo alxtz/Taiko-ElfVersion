@@ -45,8 +45,6 @@ class SongChoose : public QGraphicsScene
         void setBackground(string oveName = "default");
         void setMusic(string oveName = "default");
         void buttonClicked(int index);
-
-
 };
 
 #endif // SONGCHOOSE_H

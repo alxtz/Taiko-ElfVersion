@@ -2,12 +2,15 @@
 #define PLAYENGINE_H
 
 
-#include <QObject>
 #include <string>
-#include <QMediaPlayer>
+
 #include <QTimer>
-#include <QGraphicsPixmapItem>
+#include <QObject>
 #include <QKeyEvent>
+#include <QMediaPlayer>
+#include <QGraphicsPixmapItem>
+
+#include "EscMenu.h"
 #include "SheetMusic.h"
 #include "SheetMusicPlayer.h"
 
@@ -29,16 +32,20 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
         SheetMusic sheetMusic;
         SheetMusicPlayer * sheetMusicPlayer;
 
-
-
     private:
         QTimer * moveTimer;
         string inputOve;
         QMediaPlayer * BGMusic;
+        EscMenu * escMenu;
+
+        bool isEsc;
 
     public slots:
         void spawnDongKa(int type);
         void spawnGrade(int grade);
+
+        void moveTimerPause();
+        void moveTimerResume();
 
     signals:
         void hitKey(int);

@@ -58,3 +58,8 @@ void PlayScene::setBackgroundPicture()
 
     setBackgroundBrush(QBrush(QImage(qBackgroundPath)));
 }
+
+void PlayScene::endGame()
+{
+
+}

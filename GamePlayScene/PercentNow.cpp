@@ -20,8 +20,6 @@ PercentNow::PercentNow()
 
 void PercentNow::hitted(bool correct)
 {
-    //qDebug()<<"hitted slot";
-
     totalHits++;
 
     if(correct==true)

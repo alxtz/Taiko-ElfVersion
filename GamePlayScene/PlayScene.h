@@ -9,8 +9,10 @@
 #include "Combo.h"
 #include "HitPoint.h"
 #include "PlayScore.h"
+
 #include "PercentNow.h"
 #include "PlayEngine.h"
+#include "../ResultScene/GamePlayResult.h"
 
 using namespace std;
 
@@ -27,12 +29,13 @@ class PlayScene : public QGraphicsScene
         Combo * combo;
         PercentNow * percentNow;
         PlayEngine * playEngine;
+        GamePlayResult * gamePlayResult;
+
+        void endGame();
 
     private:
         string playingOve;
         QGraphicsPixmapItem * songTrack;
-
-
 };
 
 #endif // PLAYSCENE_H

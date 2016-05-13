@@ -73,7 +73,10 @@ SOURCES       = main.cpp \
 		SongChooseScene/BackButton.cpp \
 		SongChooseScene/ChildSongButton.cpp \
 		TestTimer.cpp \
-		TestQTimer.cpp moc_GameView.cpp \
+		TestQTimer.cpp \
+		GamePlayScene/EscMenu.cpp \
+		ResultScene/ResultScene.cpp \
+		ResultScene/GamePlayResult.cpp moc_GameView.cpp \
 		moc_TaikoIcon.cpp \
 		moc_SoloButton.cpp \
 		moc_SongChoose.cpp \
@@ -119,6 +122,9 @@ OBJECTS       = main.o \
 		ChildSongButton.o \
 		TestTimer.o \
 		TestQTimer.o \
+		EscMenu.o \
+		ResultScene.o \
+		GamePlayResult.o \
 		moc_GameView.o \
 		moc_TaikoIcon.o \
 		moc_SoloButton.o \
@@ -297,7 +303,10 @@ DIST          = ../../Qt/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		SongChooseScene/BackButton.h \
 		SongChooseScene/ChildSongButton.h \
 		TestTimer.h \
-		TestQTimer.h main.cpp \
+		TestQTimer.h \
+		GamePlayScene/EscMenu.h \
+		ResultScene/ResultScene.h \
+		ResultScene/GamePlayResult.h main.cpp \
 		GameView.cpp \
 		StartMenuScene/MainMenu.cpp \
 		SongChooseScene/SongChoose.cpp \
@@ -322,7 +331,10 @@ DIST          = ../../Qt/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		SongChooseScene/BackButton.cpp \
 		SongChooseScene/ChildSongButton.cpp \
 		TestTimer.cpp \
-		TestQTimer.cpp
+		TestQTimer.cpp \
+		GamePlayScene/EscMenu.cpp \
+		ResultScene/ResultScene.cpp \
+		ResultScene/GamePlayResult.cpp
 QMAKE_TARGET  = ElfVersion
 DESTDIR       = 
 TARGET        = ElfVersion
@@ -629,8 +641,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents GameView.h StartMenuScene/MainMenu.h StartMenuScene/TaikoIcon.h StartMenuScene/SoloButton.h SongChooseScene/SongChoose.h GamePlayScene/PlayScene.h GamePlayScene/PlayEngine.h GamePlayScene/Note.h GamePlayScene/SheetMusic.h GamePlayScene/SheetMusicPlayer.h GamePlayScene/Dong.h GamePlayScene/Ka.h GamePlayScene/HitPoint.h GamePlayScene/Drum.h GamePlayScene/IconBad.h GamePlayScene/IconGood.h GamePlayScene/IconGreat.h GamePlayScene/PlayScore.h GamePlayScene/Combo.h GamePlayScene/PercentNow.h SongChooseScene/SongButton.h SongChooseScene/BackButton.h SongChooseScene/ChildSongButton.h TestTimer.h TestQTimer.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp GameView.cpp StartMenuScene/MainMenu.cpp SongChooseScene/SongChoose.cpp StartMenuScene/TaikoIcon.cpp StartMenuScene/SoloButton.cpp GamePlayScene/PlayScene.cpp GamePlayScene/PlayEngine.cpp GamePlayScene/Note.cpp GamePlayScene/SheetMusic.cpp GamePlayScene/SheetMusicPlayer.cpp GamePlayScene/Dong.cpp GamePlayScene/Ka.cpp GamePlayScene/HitPoint.cpp GamePlayScene/Drum.cpp GamePlayScene/IconBad.cpp GamePlayScene/IconGood.cpp GamePlayScene/IconGreat.cpp GamePlayScene/PlayScore.cpp GamePlayScene/Combo.cpp GamePlayScene/PercentNow.cpp SongChooseScene/SongButton.cpp SongChooseScene/BackButton.cpp SongChooseScene/ChildSongButton.cpp TestTimer.cpp TestQTimer.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents GameView.h StartMenuScene/MainMenu.h StartMenuScene/TaikoIcon.h StartMenuScene/SoloButton.h SongChooseScene/SongChoose.h GamePlayScene/PlayScene.h GamePlayScene/PlayEngine.h GamePlayScene/Note.h GamePlayScene/SheetMusic.h GamePlayScene/SheetMusicPlayer.h GamePlayScene/Dong.h GamePlayScene/Ka.h GamePlayScene/HitPoint.h GamePlayScene/Drum.h GamePlayScene/IconBad.h GamePlayScene/IconGood.h GamePlayScene/IconGreat.h GamePlayScene/PlayScore.h GamePlayScene/Combo.h GamePlayScene/PercentNow.h SongChooseScene/SongButton.h SongChooseScene/BackButton.h SongChooseScene/ChildSongButton.h TestTimer.h TestQTimer.h GamePlayScene/EscMenu.h ResultScene/ResultScene.h ResultScene/GamePlayResult.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp GameView.cpp StartMenuScene/MainMenu.cpp SongChooseScene/SongChoose.cpp StartMenuScene/TaikoIcon.cpp StartMenuScene/SoloButton.cpp GamePlayScene/PlayScene.cpp GamePlayScene/PlayEngine.cpp GamePlayScene/Note.cpp GamePlayScene/SheetMusic.cpp GamePlayScene/SheetMusicPlayer.cpp GamePlayScene/Dong.cpp GamePlayScene/Ka.cpp GamePlayScene/HitPoint.cpp GamePlayScene/Drum.cpp GamePlayScene/IconBad.cpp GamePlayScene/IconGood.cpp GamePlayScene/IconGreat.cpp GamePlayScene/PlayScore.cpp GamePlayScene/Combo.cpp GamePlayScene/PercentNow.cpp SongChooseScene/SongButton.cpp SongChooseScene/BackButton.cpp SongChooseScene/ChildSongButton.cpp TestTimer.cpp TestQTimer.cpp GamePlayScene/EscMenu.cpp ResultScene/ResultScene.cpp ResultScene/GamePlayResult.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -813,9 +825,11 @@ moc_GameView.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
+		ResultScene/GamePlayResult.h \
 		GameView.h
 	/home/bj/Qt/5.6/gcc_64/bin/moc $(DEFINES) -I/home/bj/Qt/5.6/gcc_64/mkspecs/linux-g++ -I/home/bj/桌面/ElfVersion -I/home/bj/Qt/5.6/gcc_64/include -I/home/bj/Qt/5.6/gcc_64/include/QtMultimedia -I/home/bj/Qt/5.6/gcc_64/include/QtWidgets -I/home/bj/Qt/5.6/gcc_64/include/QtGui -I/home/bj/Qt/5.6/gcc_64/include/QtNetwork -I/home/bj/Qt/5.6/gcc_64/include/QtCore GameView.h -o moc_GameView.cpp
 
@@ -1132,10 +1146,8 @@ moc_SongChoose.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		SongChooseScene/SongChoose.h
 	/home/bj/Qt/5.6/gcc_64/bin/moc $(DEFINES) -I/home/bj/Qt/5.6/gcc_64/mkspecs/linux-g++ -I/home/bj/桌面/ElfVersion -I/home/bj/Qt/5.6/gcc_64/include -I/home/bj/Qt/5.6/gcc_64/include/QtMultimedia -I/home/bj/Qt/5.6/gcc_64/include/QtWidgets -I/home/bj/Qt/5.6/gcc_64/include/QtGui -I/home/bj/Qt/5.6/gcc_64/include/QtNetwork -I/home/bj/Qt/5.6/gcc_64/include/QtCore SongChooseScene/SongChoose.h -o moc_SongChoose.cpp
 
-moc_PlayEngine.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
-		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+moc_PlayEngine.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
@@ -1165,6 +1177,10 @@ moc_PlayEngine.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
@@ -1187,51 +1203,56 @@ moc_PlayEngine.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QObject \
+		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		../../Qt/5.6/gcc_64/include/QtGui/qevent.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qregion.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdatastream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qkeysequence.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtextstream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qurl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qurlquery.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfile.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfiledevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qvector2d.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtouchdevice.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qtmultimediadefs.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmultimedia.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediacontent.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaresource.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qdebug.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qtextstream.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qlocale.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
 		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkrequest.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QSharedDataPointer \
 		../../Qt/5.6/gcc_64/include/QtCore/QString \
 		../../Qt/5.6/gcc_64/include/QtCore/QUrl \
-		../../Qt/5.6/gcc_64/include/QtCore/qurl.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qurlquery.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QVariant \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmetaobject.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qaudio.h \
 		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qregion.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qdatastream.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
@@ -1243,13 +1264,7 @@ moc_PlayEngine.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
-		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
-		../../Qt/5.6/gcc_64/include/QtGui/qevent.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qkeysequence.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qfile.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qfiledevice.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qvector2d.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qtouchdevice.h \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
@@ -2770,10 +2785,13 @@ main.o: main.cpp ../../Qt/5.6/gcc_64/include/QtWidgets/QApplication \
 		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
-		TestTimer.h
+		ResultScene/GamePlayResult.h \
+		TestTimer.h \
+		TestQTimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 GameView.o: GameView.cpp GameView.h \
@@ -2934,9 +2952,11 @@ GameView.o: GameView.cpp GameView.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
+		ResultScene/GamePlayResult.h \
 		TestTimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GameView.o GameView.cpp
 
@@ -3102,9 +3122,11 @@ MainMenu.o: StartMenuScene/MainMenu.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush
 		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
-		GamePlayScene/SheetMusicPlayer.h
+		GamePlayScene/SheetMusicPlayer.h \
+		ResultScene/GamePlayResult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainMenu.o StartMenuScene/MainMenu.cpp
 
 SongChoose.o: SongChooseScene/SongChoose.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush \
@@ -3399,9 +3421,11 @@ TaikoIcon.o: StartMenuScene/TaikoIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPix
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
-		GamePlayScene/SheetMusicPlayer.h
+		GamePlayScene/SheetMusicPlayer.h \
+		ResultScene/GamePlayResult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TaikoIcon.o StartMenuScene/TaikoIcon.cpp
 
 SoloButton.o: StartMenuScene/SoloButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
@@ -3565,9 +3589,11 @@ SoloButton.o: StartMenuScene/SoloButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/QP
 		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
-		GamePlayScene/SheetMusicPlayer.h
+		GamePlayScene/SheetMusicPlayer.h \
+		ResultScene/GamePlayResult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SoloButton.o StartMenuScene/SoloButton.cpp
 
 PlayScene.o: GamePlayScene/PlayScene.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPen \
@@ -3678,6 +3704,18 @@ PlayScene.o: GamePlayScene/PlayScene.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPen 
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
+		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		../../Qt/5.6/gcc_64/include/QtGui/qevent.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qkeysequence.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qurl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qurlquery.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfile.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfiledevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qvector2d.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtouchdevice.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
@@ -3689,26 +3727,16 @@ PlayScene.o: GamePlayScene/PlayScene.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPen 
 		../../Qt/5.6/gcc_64/include/QtCore/QSharedDataPointer \
 		../../Qt/5.6/gcc_64/include/QtCore/QString \
 		../../Qt/5.6/gcc_64/include/QtCore/QUrl \
-		../../Qt/5.6/gcc_64/include/QtCore/qurl.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qurlquery.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QVariant \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmetaobject.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qaudio.h \
 		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
-		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
-		../../Qt/5.6/gcc_64/include/QtGui/qevent.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qkeysequence.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qfile.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qfiledevice.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qvector2d.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qtouchdevice.h \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
-		GamePlayScene/SheetMusicPlayer.h
+		GamePlayScene/SheetMusicPlayer.h \
+		ResultScene/GamePlayResult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PlayScene.o GamePlayScene/PlayScene.cpp
 
 PlayEngine.o: GamePlayScene/PlayEngine.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDebug \
@@ -3812,7 +3840,17 @@ PlayEngine.o: GamePlayScene/PlayEngine.cpp ../../Qt/5.6/gcc_64/include/QtCore/QD
 		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
 		GamePlayScene/PlayEngine.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
+		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		../../Qt/5.6/gcc_64/include/QtGui/qevent.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qkeysequence.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qurl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qurlquery.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qvector2d.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtouchdevice.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/QMediaPlayer \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaplayer.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaobject.h \
@@ -3823,23 +3861,14 @@ PlayEngine.o: GamePlayScene/PlayEngine.cpp ../../Qt/5.6/gcc_64/include/QtCore/QD
 		../../Qt/5.6/gcc_64/include/QtCore/QSharedDataPointer \
 		../../Qt/5.6/gcc_64/include/QtCore/QString \
 		../../Qt/5.6/gcc_64/include/QtCore/QUrl \
-		../../Qt/5.6/gcc_64/include/QtCore/qurl.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qurlquery.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QVariant \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qmediaenumdebug.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmetaobject.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qaudio.h \
 		../../Qt/5.6/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
-		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
-		../../Qt/5.6/gcc_64/include/QtGui/qevent.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qkeysequence.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qvector2d.h \
-		../../Qt/5.6/gcc_64/include/QtGui/qtouchdevice.h \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
@@ -5081,9 +5110,11 @@ SongButton.o: SongChooseScene/SongButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/Q
 		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
-		GamePlayScene/SheetMusicPlayer.h
+		GamePlayScene/SheetMusicPlayer.h \
+		ResultScene/GamePlayResult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SongButton.o SongChooseScene/SongButton.cpp
 
 BackButton.o: SongChooseScene/BackButton.cpp ../../Qt/5.6/gcc_64/include/QtMultimedia/QSound \
@@ -5247,9 +5278,11 @@ BackButton.o: SongChooseScene/BackButton.cpp ../../Qt/5.6/gcc_64/include/QtMulti
 		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
+		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
-		GamePlayScene/SheetMusicPlayer.h
+		GamePlayScene/SheetMusicPlayer.h \
+		ResultScene/GamePlayResult.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackButton.o SongChooseScene/BackButton.cpp
 
 ChildSongButton.o: SongChooseScene/ChildSongButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/QFont \
@@ -5416,6 +5449,190 @@ TestQTimer.o: TestQTimer.cpp ../../Qt/5.6/gcc_64/include/QtCore/QTimer \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		TestTimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TestQTimer.o TestQTimer.cpp
+
+EscMenu.o: GamePlayScene/EscMenu.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsystemdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qprocessordetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypeinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypetraits.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qisenum.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsysinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlogging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qflags.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasicatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qgenericatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_gcc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv7.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv6.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv5.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_ia64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_x86.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_unix.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobalstatic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qregion.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdatastream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		GamePlayScene/EscMenu.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdebug.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtextstream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlocale.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o EscMenu.o GamePlayScene/EscMenu.cpp
+
+ResultScene.o: ResultScene/ResultScene.cpp ResultScene/ResultScene.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsScene \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsscene.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsystemdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qprocessordetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypeinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qtypetraits.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qisenum.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsysinfo.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlogging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qflags.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasicatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qgenericatomic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_gcc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv7.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv6.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_armv5.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_ia64.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_x86.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qatomic_unix.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qglobalstatic.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrefcount.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qarraydata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringbuilder.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qalgorithms.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiterator.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhashfunctions.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpair.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbytearraylist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringlist.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qregexp.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qstringmatcher.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcoreevent.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qscopedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmetatype.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qpoint.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qrect.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qmargins.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsize.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qvector.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qcolor.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgb.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qrgba64.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qmatrix.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpolygon.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qregion.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qdatastream.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qiodevice.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qline.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpainterpath.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpaintdevice.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpixmap.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qshareddata.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qhash.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qfont.h \
+		../../Qt/5.6/gcc_64/include/QtGui/qpen.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ResultScene.o ResultScene/ResultScene.cpp
+
+GamePlayResult.o: ResultScene/GamePlayResult.cpp ResultScene/GamePlayResult.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GamePlayResult.o ResultScene/GamePlayResult.cpp
 
 moc_GameView.o: moc_GameView.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_GameView.o moc_GameView.cpp

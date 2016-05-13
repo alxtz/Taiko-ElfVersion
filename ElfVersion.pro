@@ -38,7 +38,10 @@ SOURCES += main.cpp \
     SongChooseScene/BackButton.cpp \
     SongChooseScene/ChildSongButton.cpp \
     TestTimer.cpp \
-    TestQTimer.cpp
+    TestQTimer.cpp \
+    GamePlayScene/EscMenu.cpp \
+    ResultScene/ResultScene.cpp \
+    ResultScene/GamePlayResult.cpp
 
 
 HEADERS  += \
@@ -66,5 +69,8 @@ HEADERS  += \
     SongChooseScene/BackButton.h \
     SongChooseScene/ChildSongButton.h \
     TestTimer.h \
-    TestQTimer.h
+    TestQTimer.h \
+    GamePlayScene/EscMenu.h \
+    ResultScene/ResultScene.h \
+    ResultScene/GamePlayResult.h
 
