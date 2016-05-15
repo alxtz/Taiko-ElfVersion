@@ -13,6 +13,10 @@ class HitPoint : public QObject , public QGraphicsRectItem
     public:
         HitPoint();
 
+        int greatAmount;
+        int goodAmount;
+        int badAmount;
+
     private:
         QGraphicsPixmapItem * hitIcon;
 

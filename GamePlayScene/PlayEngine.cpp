@@ -11,8 +11,10 @@
 #include "IconGood.h"
 #include "IconGreat.h"
 #include "../TestTimer.h"
+#include "../GameView.h"
 
 extern TestTimer timer;
+extern GameView * gameView;
 
 using namespace std;
 
@@ -33,11 +35,21 @@ PlayEngine::PlayEngine(string oveName)
     readSheetMusic();
     sheetMusicPlayer = new SheetMusicPlayer( & sheetMusic);
     connect(sheetMusicPlayer , SIGNAL(shootDongKa(int)) , this , SLOT(spawnDongKa(int)));
+    connect(sheetMusicPlayer , SIGNAL(oveEnd()) , this , SLOT(endGame()));
+    connect(sheetMusicPlayer , SIGNAL(disableEsc()) , this , SLOT(disableEsc()));
 
     BGMusic = new QMediaPlayer();
     string musicPath = "./GameData/Oves/" + inputOve + "/song.mp3";
     QString qMusicPath = QString::fromStdString(musicPath);
     BGMusic->setMedia(QUrl::fromLocalFile(QFileInfo(qMusicPath).absoluteFilePath()));
+
+    escDisabled = false;
+}
+
+PlayEngine::~PlayEngine()
+{
+    BGMusic->stop();
+    delete BGMusic;
 }
 
 void PlayEngine::keyPressEvent(QKeyEvent *event)
@@ -52,7 +64,7 @@ void PlayEngine::keyPressEvent(QKeyEvent *event)
         emit hitKey(1);
         QSound::play("./GameData/DefaultResources/sounds/ka.wav");
     }
-    else if( event->key()==Qt::Key_Escape )
+    else if( event->key()==Qt::Key_Escape && escDisabled==false)
     {
         qDebug()<<"按下了esc";
 
@@ -74,6 +86,11 @@ void PlayEngine::keyPressEvent(QKeyEvent *event)
             isEsc = false;
             sheetMusicPlayer->resume();
         }
+    }
+    //測試用功能,按t直接跳到結算畫面
+    else if( event->key()==Qt::Key_T )
+    {
+        emit doResult();
     }
 }
 
@@ -111,6 +128,7 @@ void PlayEngine::readSheetMusic()
             //sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + 10370;
             sheetMusic.notes[i].spawnSec = foo * speedFactor * 1000 + delayAdjust;
             //10550後面會有一點問題，之後在改譜面
+            sheetMusic.noteAmount++;
         }
         else
         {
@@ -122,7 +140,7 @@ void PlayEngine::readSheetMusic()
         sheetMusic.notes[i].type = foo;
         //qDebug()<<"第"<<i<<"個note的類型是"<< sheetMusic.notes[i].type;
     }
-
+    qDebug()<<"本歌曲的noteAmount為"<<sheetMusic.noteAmount;
 }
 
 void PlayEngine::playSheetMusic()
@@ -192,4 +210,16 @@ void PlayEngine::moveTimerPause()
 void PlayEngine::moveTimerResume()
 {
     moveTimer->start(7);
+}
+
+void PlayEngine::endGame()
+{
+    qDebug()<<"遊戲結束";
+
+    emit doResult();
+}
+
+void PlayEngine::disableEsc()
+{
+    escDisabled = true;
 }

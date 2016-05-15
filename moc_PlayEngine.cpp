@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_PlayEngine_t {
-    QByteArrayData data[9];
-    char stringdata0[84];
+    QByteArrayData data[12];
+    char stringdata0[112];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -32,17 +32,20 @@ static const qt_meta_stringdata_PlayEngine_t qt_meta_stringdata_PlayEngine = {
 QT_MOC_LITERAL(0, 0, 10), // "PlayEngine"
 QT_MOC_LITERAL(1, 11, 6), // "hitKey"
 QT_MOC_LITERAL(2, 18, 0), // ""
-QT_MOC_LITERAL(3, 19, 11), // "spawnDongKa"
-QT_MOC_LITERAL(4, 31, 4), // "type"
-QT_MOC_LITERAL(5, 36, 10), // "spawnGrade"
-QT_MOC_LITERAL(6, 47, 5), // "grade"
-QT_MOC_LITERAL(7, 53, 14), // "moveTimerPause"
-QT_MOC_LITERAL(8, 68, 15) // "moveTimerResume"
+QT_MOC_LITERAL(3, 19, 8), // "doResult"
+QT_MOC_LITERAL(4, 28, 11), // "spawnDongKa"
+QT_MOC_LITERAL(5, 40, 4), // "type"
+QT_MOC_LITERAL(6, 45, 10), // "spawnGrade"
+QT_MOC_LITERAL(7, 56, 5), // "grade"
+QT_MOC_LITERAL(8, 62, 14), // "moveTimerPause"
+QT_MOC_LITERAL(9, 77, 15), // "moveTimerResume"
+QT_MOC_LITERAL(10, 93, 7), // "endGame"
+QT_MOC_LITERAL(11, 101, 10) // "disableEsc"
 
     },
-    "PlayEngine\0hitKey\0\0spawnDongKa\0type\0"
-    "spawnGrade\0grade\0moveTimerPause\0"
-    "moveTimerResume"
+    "PlayEngine\0hitKey\0\0doResult\0spawnDongKa\0"
+    "type\0spawnGrade\0grade\0moveTimerPause\0"
+    "moveTimerResume\0endGame\0disableEsc"
 };
 #undef QT_MOC_LITERAL
 
@@ -52,28 +55,34 @@ static const uint qt_meta_data_PlayEngine[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   39,    2, 0x06 /* Public */,
+       1,    1,   54,    2, 0x06 /* Public */,
+       3,    0,   57,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    1,   42,    2, 0x0a /* Public */,
-       5,    1,   45,    2, 0x0a /* Public */,
-       7,    0,   48,    2, 0x0a /* Public */,
-       8,    0,   49,    2, 0x0a /* Public */,
+       4,    1,   58,    2, 0x0a /* Public */,
+       6,    1,   61,    2, 0x0a /* Public */,
+       8,    0,   64,    2, 0x0a /* Public */,
+       9,    0,   65,    2, 0x0a /* Public */,
+      10,    0,   66,    2, 0x0a /* Public */,
+      11,    0,   67,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Int,    4,
-    QMetaType::Void, QMetaType::Int,    6,
+    QMetaType::Void, QMetaType::Int,    5,
+    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -87,10 +96,13 @@ void PlayEngine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->hitKey((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->spawnDongKa((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->spawnGrade((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 3: _t->moveTimerPause(); break;
-        case 4: _t->moveTimerResume(); break;
+        case 1: _t->doResult(); break;
+        case 2: _t->spawnDongKa((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->spawnGrade((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 4: _t->moveTimerPause(); break;
+        case 5: _t->moveTimerResume(); break;
+        case 6: _t->endGame(); break;
+        case 7: _t->disableEsc(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -100,6 +112,13 @@ void PlayEngine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             typedef void (PlayEngine::*_t)(int );
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&PlayEngine::hitKey)) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            typedef void (PlayEngine::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&PlayEngine::doResult)) {
+                *result = 1;
                 return;
             }
         }
@@ -133,13 +152,13 @@ int PlayEngine::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 5;
+        _id -= 8;
     }
     return _id;
 }
@@ -149,5 +168,11 @@ void PlayEngine::hitKey(int _t1)
 {
     void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void PlayEngine::doResult()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

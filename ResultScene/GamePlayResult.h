@@ -11,14 +11,18 @@ class GamePlayResult
     public:
         GamePlayResult();
 
-        string oveName;
+        string oveName; //資料夾名稱
         int score;
         float correctPercent;
-        int combo;
+        int highestCombo;
 
         int greatAmount;
         int goodAmount;
         int badAmount;
+
+        int rank;
+        //SS , S , A , B , F
+        //4 , 3 , 2 , 1 , 0
 };
 
 #endif // GAMEPLAYRESULT_H

@@ -15,6 +15,10 @@ HitPoint::HitPoint()
     hitIcon = new QGraphicsPixmapItem(this);
     hitIcon->setPixmap(QPixmap("./GameData/DefaultResources/images/hitPoint.png"));
     hitIcon->setPos(10 , 0);
+
+    greatAmount=0;
+    goodAmount=0;
+    badAmount=0;
 }
 
 void HitPoint::checkCollision(int type)
@@ -32,6 +36,7 @@ void HitPoint::checkCollision(int type)
                     emit setAddScore(500);
                     emit setAddCombo();
                     emit setHitted(true);
+                    greatAmount++;
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
@@ -39,12 +44,14 @@ void HitPoint::checkCollision(int type)
                     emit setAddScore(200);
                     emit setAddCombo();
                     emit setHitted(true);
+                    goodAmount++;
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {
                     emit setGrade(0);
                     emit setEndCombo();
                     emit setHitted(false);
+                    badAmount++;
                 }
                 scene()->removeItem( colliding_items[i] );
                 delete colliding_items[i];
@@ -64,6 +71,7 @@ void HitPoint::checkCollision(int type)
                     emit setAddScore(500);
                     emit setAddCombo();
                     emit setHitted(true);
+                    greatAmount++;
                 }
                 else if( colliding_items[i]->x()>=165 && colliding_items[i]->x()<=232 )
                 {
@@ -71,12 +79,14 @@ void HitPoint::checkCollision(int type)
                     emit setAddScore(200);
                     emit setAddCombo();
                     emit setHitted(true);
+                    goodAmount++;
                 }
                 else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
                 {
                     emit setGrade(0);
                     emit setEndCombo();
                     emit setHitted(false);
+                    badAmount++;
                 }
                 scene()->removeItem( colliding_items[i] );
                 delete colliding_items[i];

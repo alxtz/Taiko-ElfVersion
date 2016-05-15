@@ -22,6 +22,7 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
 
     public:
         PlayEngine(string oveName);
+        ~PlayEngine();
 
         void keyPressEvent(QKeyEvent * event);
 
@@ -37,8 +38,8 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
         string inputOve;
         QMediaPlayer * BGMusic;
         EscMenu * escMenu;
-
         bool isEsc;
+        bool escDisabled;
 
     public slots:
         void spawnDongKa(int type);
@@ -46,9 +47,13 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
 
         void moveTimerPause();
         void moveTimerResume();
+        void endGame();
+
+        void disableEsc();
 
     signals:
         void hitKey(int);
+        void doResult();
 };
 
 #endif // PLAYENGINE_H

@@ -12,7 +12,6 @@ class PercentNow : public QGraphicsTextItem
     public:
         PercentNow();
 
-    private:
         int totalHits;
         int correctHits;
         float percent;

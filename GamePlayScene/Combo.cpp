@@ -7,6 +7,7 @@ Combo::Combo()
     setZValue(15);
 
     comboAmount = 0;
+    highestCombo = 0;
 
     setDefaultTextColor(QColor(189 , 32 , 65));
     setFont(QFont("SansSerif" , 40));
@@ -16,6 +17,12 @@ Combo::Combo()
 void Combo::addCombo()
 {
     comboAmount++;
+
+    if(comboAmount>highestCombo)
+    {
+        highestCombo = comboAmount;
+    }
+
     setPlainText(QString::number(comboAmount));
 
     if(comboAmount>=100)

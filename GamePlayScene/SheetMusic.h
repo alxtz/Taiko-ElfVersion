@@ -11,6 +11,7 @@ class SheetMusic
         Note notes[1000];
 
         int BPM;
+        int noteAmount;
 };
 
 #endif // SHEETMUSIC_H

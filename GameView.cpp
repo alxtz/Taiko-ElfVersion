@@ -1,3 +1,4 @@
+#include <QDebug>
 #include <fstream>
 #include "GameView.h"
 #include "TestTimer.h"
@@ -35,6 +36,19 @@ void GameView::setSongMenu()
     songChoose->loadSongButtons();
 
     delete mainMenu;
+}
+
+void GameView::setResultScene( GamePlayResult & gamePlayResult)
+{
+    qDebug()<<"setResultScene";
+
+    resultScene = new ResultScene(gamePlayResult);
+    setScene(resultScene);
+
+    resultScene->setBackground();
+    resultScene->setResult();
+
+    delete playScene;
 }
 
 void GameView::setPlayScene(string oveName)

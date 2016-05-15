@@ -10,8 +10,6 @@ class PlayScore : public QGraphicsTextItem
 
     public:
         PlayScore(QGraphicsItem * parent = 0);
-
-    private:
         int score;
 
     public slots:

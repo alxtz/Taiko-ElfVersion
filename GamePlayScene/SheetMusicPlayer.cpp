@@ -31,6 +31,10 @@ void SheetMusicPlayer::count()
     if(sheetMusic.notes[currentNote].type==-1)
         {
             qDebug()<<"譜面結束";
+
+            QTimer::singleShot(0 , this , SLOT(disableEsc()));
+            QTimer::singleShot(5000 , this , SLOT(emitOveEnd()));
+
             return;
         }
     int delayTime;
@@ -77,4 +81,9 @@ void SheetMusicPlayer::pause()
 void SheetMusicPlayer::resume()
 {
     singleTimer->start(remainingTime);
+}
+
+void SheetMusicPlayer::emitOveEnd()
+{
+    emit oveEnd();
 }

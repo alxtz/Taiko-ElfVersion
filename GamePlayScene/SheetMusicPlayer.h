@@ -21,13 +21,16 @@ class SheetMusicPlayer : public QObject
 
     public slots:
         void spawn();
-
         void pause();
         void resume();
+        void emitOveEnd();
 
     signals:
         void shootDongKa(int);
         void setSpawn();
+        void oveEnd();
+
+        void disableEsc();
 
 
     private:

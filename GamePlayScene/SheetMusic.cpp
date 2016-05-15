@@ -2,5 +2,5 @@
 
 SheetMusic::SheetMusic()
 {
-
+    noteAmount=0;
 }

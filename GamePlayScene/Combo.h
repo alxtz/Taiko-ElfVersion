@@ -11,9 +11,8 @@ class Combo : public QGraphicsTextItem
 
     public:
         Combo();
-
-    private:
         int comboAmount;
+        int highestCombo;
 
     public slots:
         void addCombo();

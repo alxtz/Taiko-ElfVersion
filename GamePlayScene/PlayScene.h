@@ -18,8 +18,11 @@ using namespace std;
 
 class PlayScene : public QGraphicsScene
 {
+    Q_OBJECT
+
     public:
         PlayScene(string oveName);
+        ~PlayScene();
 
         void setBackgroundPicture();
 
@@ -31,7 +34,8 @@ class PlayScene : public QGraphicsScene
         PlayEngine * playEngine;
         GamePlayResult * gamePlayResult;
 
-        void endGame();
+    public slots:
+        void startResult();
 
     private:
         string playingOve;

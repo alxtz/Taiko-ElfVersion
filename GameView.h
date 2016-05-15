@@ -8,6 +8,8 @@
 #include "./StartMenuScene/MainMenu.h"
 #include "./SongChooseScene/SongChoose.h"
 #include "./GamePlayScene/PlayScene.h"
+#include "./ResultScene/GamePlayResult.h"
+#include "./ResultScene/ResultScene.h"
 
 using namespace std;
 
@@ -21,11 +23,13 @@ class GameView : public QGraphicsView
         MainMenu * mainMenu;
         SongChoose * songChoose;
         PlayScene * playScene;
+        ResultScene * resultScene;
 
     public slots:
         void setMainMenu();
         void backToMainMenu();
         void setSongMenu();
+        void setResultScene( GamePlayResult & gamePlayResult);
         void setPlayScene(string oveName);
         void setLastPlayed(string oveName);
 };
