@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
 #include "GamePlayResult.h"
+#include "ResultBackButton.h"
 
 class ResultScene : public QGraphicsScene
 {
@@ -30,6 +31,11 @@ class ResultScene : public QGraphicsScene
         QGraphicsTextItem * greatAmount;
         QGraphicsTextItem * goodAmount;
         QGraphicsTextItem * badAmount;
+
+        QGraphicsTextItem * rank;
+
+        ResultBackButton * backButton;
+
         void setResult();
 };
 

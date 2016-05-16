@@ -29,9 +29,11 @@ class GameView : public QGraphicsView
         void setMainMenu();
         void backToMainMenu();
         void setSongMenu();
-        void setResultScene( GamePlayResult & gamePlayResult);
+        void setResultScene( GamePlayResult  gamePlayResult);
         void setPlayScene(string oveName);
         void setLastPlayed(string oveName);
+
+        void exitResult();
 };
 
 #endif // GAMEVIEW_H

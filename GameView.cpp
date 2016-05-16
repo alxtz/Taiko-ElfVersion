@@ -38,7 +38,7 @@ void GameView::setSongMenu()
     delete mainMenu;
 }
 
-void GameView::setResultScene( GamePlayResult & gamePlayResult)
+void GameView::setResultScene( GamePlayResult  gamePlayResult)
 {
     qDebug()<<"setResultScene";
 
@@ -66,4 +66,12 @@ void GameView::setLastPlayed(string oveName)
     ofstream LastSong("./GameData/GameSettings/lastSong.txt" , ios::out);
 
     LastSong<<oveName;
+}
+
+void GameView::exitResult()
+{
+    mainMenu = new MainMenu();
+    setScene(mainMenu);
+
+    //delete resultScene;
 }

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_GameView_t {
-    QByteArrayData data[12];
-    char stringdata0[137];
+    QByteArrayData data[13];
+    char stringdata0[147];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,18 +35,19 @@ QT_MOC_LITERAL(2, 21, 0), // ""
 QT_MOC_LITERAL(3, 22, 14), // "backToMainMenu"
 QT_MOC_LITERAL(4, 37, 11), // "setSongMenu"
 QT_MOC_LITERAL(5, 49, 14), // "setResultScene"
-QT_MOC_LITERAL(6, 64, 15), // "GamePlayResult&"
-QT_MOC_LITERAL(7, 80, 14), // "gamePlayResult"
-QT_MOC_LITERAL(8, 95, 12), // "setPlayScene"
-QT_MOC_LITERAL(9, 108, 6), // "string"
-QT_MOC_LITERAL(10, 115, 7), // "oveName"
-QT_MOC_LITERAL(11, 123, 13) // "setLastPlayed"
+QT_MOC_LITERAL(6, 64, 14), // "GamePlayResult"
+QT_MOC_LITERAL(7, 79, 14), // "gamePlayResult"
+QT_MOC_LITERAL(8, 94, 12), // "setPlayScene"
+QT_MOC_LITERAL(9, 107, 6), // "string"
+QT_MOC_LITERAL(10, 114, 7), // "oveName"
+QT_MOC_LITERAL(11, 122, 13), // "setLastPlayed"
+QT_MOC_LITERAL(12, 136, 10) // "exitResult"
 
     },
     "GameView\0setMainMenu\0\0backToMainMenu\0"
-    "setSongMenu\0setResultScene\0GamePlayResult&\0"
+    "setSongMenu\0setResultScene\0GamePlayResult\0"
     "gamePlayResult\0setPlayScene\0string\0"
-    "oveName\0setLastPlayed"
+    "oveName\0setLastPlayed\0exitResult"
 };
 #undef QT_MOC_LITERAL
 
@@ -56,7 +57,7 @@ static const uint qt_meta_data_GameView[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -64,12 +65,13 @@ static const uint qt_meta_data_GameView[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x0a /* Public */,
-       3,    0,   45,    2, 0x0a /* Public */,
-       4,    0,   46,    2, 0x0a /* Public */,
-       5,    1,   47,    2, 0x0a /* Public */,
-       8,    1,   50,    2, 0x0a /* Public */,
-      11,    1,   53,    2, 0x0a /* Public */,
+       1,    0,   49,    2, 0x0a /* Public */,
+       3,    0,   50,    2, 0x0a /* Public */,
+       4,    0,   51,    2, 0x0a /* Public */,
+       5,    1,   52,    2, 0x0a /* Public */,
+       8,    1,   55,    2, 0x0a /* Public */,
+      11,    1,   58,    2, 0x0a /* Public */,
+      12,    0,   61,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -78,6 +80,7 @@ static const uint qt_meta_data_GameView[] = {
     QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void, 0x80000000 | 9,   10,
     QMetaType::Void, 0x80000000 | 9,   10,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -94,6 +97,7 @@ void GameView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 3: _t->setResultScene((*reinterpret_cast< GamePlayResult(*)>(_a[1]))); break;
         case 4: _t->setPlayScene((*reinterpret_cast< string(*)>(_a[1]))); break;
         case 5: _t->setLastPlayed((*reinterpret_cast< string(*)>(_a[1]))); break;
+        case 6: _t->exitResult(); break;
         default: ;
         }
     }
@@ -124,13 +128,13 @@ int GameView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

@@ -41,7 +41,8 @@ SOURCES += main.cpp \
     TestQTimer.cpp \
     GamePlayScene/EscMenu.cpp \
     ResultScene/ResultScene.cpp \
-    ResultScene/GamePlayResult.cpp
+    ResultScene/GamePlayResult.cpp \
+    ResultScene/ResultBackButton.cpp
 
 
 HEADERS  += \
@@ -72,5 +73,6 @@ HEADERS  += \
     TestQTimer.h \
     GamePlayScene/EscMenu.h \
     ResultScene/ResultScene.h \
-    ResultScene/GamePlayResult.h
+    ResultScene/GamePlayResult.h \
+    ResultScene/ResultBackButton.h
 

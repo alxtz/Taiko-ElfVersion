@@ -20,8 +20,8 @@ using namespace std;
 
 PlayEngine::PlayEngine(string oveName)
 {
-    //testMode = false;
-    testMode = true;
+    testMode = false;
+    //testMode = true;
     moveTimer = new QTimer();
     moveTimer->start(7);
 
@@ -109,7 +109,7 @@ void PlayEngine::readSheetMusic()
         qDebug()<<"打開失敗~";
     }
 
-    int BPM;
+    double BPM;
 
     inputOve>>BPM;
 

@@ -17,6 +17,8 @@ ResultScene::ResultScene(GamePlayResult & gamePlayResult) : usingResult(gamePlay
     addItem(resultBoard);
     //因為reference只能被指派一次，所以要用member initializer來初始化
 
+    backButton = new ResultBackButton();
+    addItem(backButton);
 }
 
 void ResultScene::setBackground()
@@ -125,4 +127,46 @@ void ResultScene::setResult()
     badAmount->setPos(202 , 427);
     badAmount->setDefaultTextColor(QColor(107 , 107 , 107));
     addItem(badAmount);
+
+    rank = new QGraphicsTextItem();
+    QString rankText;
+    QFont rankTextFont("Helvetica" , 120);
+    rankTextFont.setWeight(75);
+
+    //usingResult.rank = 3;
+
+    if(usingResult.rank==4)
+    {
+        rankText = "SS";
+        rank->setDefaultTextColor(QColor(240 , 46 , 81));
+        rank->setPos(380 , 290);
+    }
+    else if(usingResult.rank==3)
+    {
+        rankText = "S";
+        rank->setDefaultTextColor(QColor(255 , 255 , 0));
+        rank->setPos(390 , 290);
+    }
+    else if(usingResult.rank==2)
+    {
+        rankText = "A";
+        rank->setDefaultTextColor(QColor(87 , 227 , 0));
+        rank->setPos(390 , 290);
+    }
+    else if(usingResult.rank==1)
+    {
+        rankText = "B";
+        rank->setDefaultTextColor(QColor(82 , 25 , 189));
+        rank->setPos(390 , 290);
+    }
+    else if(usingResult.rank==0)
+    {
+        rankText = "F";
+        rank->setDefaultTextColor(QColor(94 , 94 , 94));
+        rank->setPos(390 , 290);
+    }
+
+    rank->setPlainText(rankText);
+    rank->setFont(rankTextFont);
+    addItem(rank);
 }
