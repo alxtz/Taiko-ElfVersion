@@ -20,7 +20,16 @@ class ResultScene : public QGraphicsScene
 
         QGraphicsTextItem * oveText;
         QGraphicsTextItem * scoreText;
+        QGraphicsTextItem * percentText;
+        QGraphicsTextItem * comboText;
 
+        QGraphicsPixmapItem * greatPic;
+        QGraphicsPixmapItem * goodPic;
+        QGraphicsPixmapItem * badPic;
+
+        QGraphicsTextItem * greatAmount;
+        QGraphicsTextItem * goodAmount;
+        QGraphicsTextItem * badAmount;
         void setResult();
 };
 

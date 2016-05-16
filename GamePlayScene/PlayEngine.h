@@ -41,6 +41,8 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
         bool isEsc;
         bool escDisabled;
 
+        bool testMode;
+
     public slots:
         void spawnDongKa(int type);
         void spawnGrade(int grade);

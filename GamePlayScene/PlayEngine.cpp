@@ -20,6 +20,8 @@ using namespace std;
 
 PlayEngine::PlayEngine(string oveName)
 {
+    //testMode = false;
+    testMode = true;
     moveTimer = new QTimer();
     moveTimer->start(7);
 
@@ -88,7 +90,7 @@ void PlayEngine::keyPressEvent(QKeyEvent *event)
         }
     }
     //測試用功能,按t直接跳到結算畫面
-    else if( event->key()==Qt::Key_T )
+    else if( event->key()==Qt::Key_T && testMode==true)
     {
         emit doResult();
     }
@@ -214,9 +216,11 @@ void PlayEngine::moveTimerResume()
 
 void PlayEngine::endGame()
 {
-    qDebug()<<"遊戲結束";
-
-    emit doResult();
+    if(testMode==false)
+    {
+        qDebug()<<"遊戲結束";
+        emit doResult();
+    }
 }
 
 void PlayEngine::disableEsc()
