@@ -41,7 +41,7 @@ void ResultScene::setResult()
     string songName;
     string songOrigin;
 
-    inputSongName>>songName;
+    getline(inputSongName , songName);
 
     getline(inputSongName , songOrigin);
 

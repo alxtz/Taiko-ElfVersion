@@ -194,7 +194,9 @@ void SongChoose::loadSongButtons()
         {
             qDebug()<<"打開name.txt失敗";
         }
-        inputSongName>>songName;
+        //inputSongName>>songName;
+
+        getline(inputSongName , songName);
 
         getline(inputSongName , songOrigin);
 
