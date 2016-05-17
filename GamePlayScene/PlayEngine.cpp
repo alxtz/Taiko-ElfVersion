@@ -56,12 +56,12 @@ PlayEngine::~PlayEngine()
 
 void PlayEngine::keyPressEvent(QKeyEvent *event)
 {
-    if( event->key()==Qt::Key_F)
+    if( event->key()==Qt::Key_F || event->key()==Qt::Key_J)
     {
         emit hitKey(0);
         QSound::play("./GameData/DefaultResources/sounds/dong.wav");
     }
-    else if( event->key()==Qt::Key_K )
+    else if( event->key()==Qt::Key_K || event->key()==Qt::Key_D)
     {
         emit hitKey(1);
         QSound::play("./GameData/DefaultResources/sounds/ka.wav");
