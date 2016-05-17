@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <QTimer>
 #include <QObject>
 #include <QGraphicsView>
 #include "./StartMenuScene/MainMenu.h"
@@ -24,6 +25,7 @@ class GameView : public QGraphicsView
         SongChoose * songChoose;
         PlayScene * playScene;
         ResultScene * resultScene;
+        QTimer * musicDelayTimer;
 
     public slots:
         void setMainMenu();

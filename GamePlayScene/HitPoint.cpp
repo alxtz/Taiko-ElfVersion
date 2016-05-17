@@ -9,12 +9,12 @@
 
 HitPoint::HitPoint()
 {
-    setRect(0 , 0 , 80 , 60);
-    setPos(182 , 335);
+    setRect(0 , 0 , 40 , 60);
+    setPos(202 , 335);
 
     hitIcon = new QGraphicsPixmapItem(this);
     hitIcon->setPixmap(QPixmap("./GameData/DefaultResources/images/hitPoint.png"));
-    hitIcon->setPos(10 , 0);
+    hitIcon->setPos(-10 , 0);
 
     greatAmount=0;
     goodAmount=0;
@@ -46,7 +46,7 @@ void HitPoint::checkCollision(int type)
                     emit setHitted(true);
                     goodAmount++;
                 }
-                else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
+                else if( colliding_items[i]->x()>=155 && colliding_items[i]->x()<=242 )
                 {
                     emit setGrade(0);
                     emit setEndCombo();
@@ -81,7 +81,7 @@ void HitPoint::checkCollision(int type)
                     emit setHitted(true);
                     goodAmount++;
                 }
-                else if( colliding_items[i]->x()>=135 && colliding_items[i]->x()<=262 )
+                else if( colliding_items[i]->x()>=155 && colliding_items[i]->x()<=242 )
                 {
                     emit setGrade(0);
                     emit setEndCombo();

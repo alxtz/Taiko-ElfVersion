@@ -12,6 +12,10 @@ GameView::GameView()
     setFixedSize(800 , 600);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    musicDelayTimer = new QTimer();
+    musicDelayTimer->setSingleShot(true);
+    musicDelayTimer->setTimerType(Qt::PreciseTimer);
 }
 
 void GameView::setMainMenu()
@@ -54,9 +58,12 @@ void GameView::setResultScene( GamePlayResult  gamePlayResult)
 void GameView::setPlayScene(string oveName)
 {
     playScene = new PlayScene(oveName);
-    timer.start();
+
+    connect(musicDelayTimer , SIGNAL(timeout()) , playScene->playEngine , SLOT(playMusic()));
+
     playScene->playEngine->playSheetMusic();
-    playScene->playEngine->playMusic();
+    //playScene->playEngine->playMusic();
+    musicDelayTimer->start(2000);
     setScene(playScene);
     delete songChoose;
 }

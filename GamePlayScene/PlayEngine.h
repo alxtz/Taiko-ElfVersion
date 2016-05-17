@@ -28,7 +28,6 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
 
         void readSheetMusic();
         void playSheetMusic();
-        void playMusic();
 
         SheetMusic sheetMusic;
         SheetMusicPlayer * sheetMusicPlayer;
@@ -50,8 +49,8 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
         void moveTimerPause();
         void moveTimerResume();
         void endGame();
-
         void disableEsc();
+        void playMusic();
 
     signals:
         void hitKey(int);

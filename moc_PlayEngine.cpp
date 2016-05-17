@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_PlayEngine_t {
-    QByteArrayData data[12];
-    char stringdata0[112];
+    QByteArrayData data[13];
+    char stringdata0[122];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,12 +40,14 @@ QT_MOC_LITERAL(7, 56, 5), // "grade"
 QT_MOC_LITERAL(8, 62, 14), // "moveTimerPause"
 QT_MOC_LITERAL(9, 77, 15), // "moveTimerResume"
 QT_MOC_LITERAL(10, 93, 7), // "endGame"
-QT_MOC_LITERAL(11, 101, 10) // "disableEsc"
+QT_MOC_LITERAL(11, 101, 10), // "disableEsc"
+QT_MOC_LITERAL(12, 112, 9) // "playMusic"
 
     },
     "PlayEngine\0hitKey\0\0doResult\0spawnDongKa\0"
     "type\0spawnGrade\0grade\0moveTimerPause\0"
-    "moveTimerResume\0endGame\0disableEsc"
+    "moveTimerResume\0endGame\0disableEsc\0"
+    "playMusic"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,7 +57,7 @@ static const uint qt_meta_data_PlayEngine[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -63,16 +65,17 @@ static const uint qt_meta_data_PlayEngine[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   54,    2, 0x06 /* Public */,
-       3,    0,   57,    2, 0x06 /* Public */,
+       1,    1,   59,    2, 0x06 /* Public */,
+       3,    0,   62,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    1,   58,    2, 0x0a /* Public */,
-       6,    1,   61,    2, 0x0a /* Public */,
-       8,    0,   64,    2, 0x0a /* Public */,
-       9,    0,   65,    2, 0x0a /* Public */,
-      10,    0,   66,    2, 0x0a /* Public */,
-      11,    0,   67,    2, 0x0a /* Public */,
+       4,    1,   63,    2, 0x0a /* Public */,
+       6,    1,   66,    2, 0x0a /* Public */,
+       8,    0,   69,    2, 0x0a /* Public */,
+       9,    0,   70,    2, 0x0a /* Public */,
+      10,    0,   71,    2, 0x0a /* Public */,
+      11,    0,   72,    2, 0x0a /* Public */,
+      12,    0,   73,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -81,6 +84,7 @@ static const uint qt_meta_data_PlayEngine[] = {
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    5,
     QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -103,6 +107,7 @@ void PlayEngine::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->moveTimerResume(); break;
         case 6: _t->endGame(); break;
         case 7: _t->disableEsc(); break;
+        case 8: _t->playMusic(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -152,13 +157,13 @@ int PlayEngine::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 9)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 9;
     }
     return _id;
 }
