@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <QPixmap>
+#include <string>
 #include "ResultScene.h"
 
 using namespace std;
@@ -169,4 +170,29 @@ void ResultScene::setResult()
     rank->setPlainText(rankText);
     rank->setFont(rankTextFont);
     addItem(rank);
+
+    setScoreFile();
+}
+
+void ResultScene::setScoreFile()
+{
+    string path = "./GameData/Oves/" + usingResult.oveName + "/score.txt";
+
+    ifstream inputScore(path , ios::in );
+
+    int highscore;
+    int highRank;
+
+    inputScore>>highscore;
+    inputScore>>highRank;
+
+    inputScore.close();
+
+    if(usingResult.score>highscore)
+    {
+        ofstream outputScore(path , ios::out);
+        outputScore<<usingResult.score;
+        outputScore<<"\n";
+        outputScore<<usingResult.rank;
+    }
 }

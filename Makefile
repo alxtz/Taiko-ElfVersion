@@ -77,7 +77,8 @@ SOURCES       = main.cpp \
 		GamePlayScene/EscMenu.cpp \
 		ResultScene/ResultScene.cpp \
 		ResultScene/GamePlayResult.cpp \
-		ResultScene/ResultBackButton.cpp moc_GameView.cpp \
+		ResultScene/ResultBackButton.cpp \
+		SongChooseScene/HighestScoreBox.cpp moc_GameView.cpp \
 		moc_TaikoIcon.cpp \
 		moc_SoloButton.cpp \
 		moc_SongChoose.cpp \
@@ -129,6 +130,7 @@ OBJECTS       = main.o \
 		ResultScene.o \
 		GamePlayResult.o \
 		ResultBackButton.o \
+		HighestScoreBox.o \
 		moc_GameView.o \
 		moc_TaikoIcon.o \
 		moc_SoloButton.o \
@@ -313,7 +315,8 @@ DIST          = ../../Qt/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		GamePlayScene/EscMenu.h \
 		ResultScene/ResultScene.h \
 		ResultScene/GamePlayResult.h \
-		ResultScene/ResultBackButton.h main.cpp \
+		ResultScene/ResultBackButton.h \
+		SongChooseScene/HighestScoreBox.h main.cpp \
 		GameView.cpp \
 		StartMenuScene/MainMenu.cpp \
 		SongChooseScene/SongChoose.cpp \
@@ -342,7 +345,8 @@ DIST          = ../../Qt/5.6/gcc_64/mkspecs/features/spec_pre.prf \
 		GamePlayScene/EscMenu.cpp \
 		ResultScene/ResultScene.cpp \
 		ResultScene/GamePlayResult.cpp \
-		ResultScene/ResultBackButton.cpp
+		ResultScene/ResultBackButton.cpp \
+		SongChooseScene/HighestScoreBox.cpp
 QMAKE_TARGET  = ElfVersion
 DESTDIR       = 
 TARGET        = ElfVersion
@@ -649,8 +653,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents GameView.h StartMenuScene/MainMenu.h StartMenuScene/TaikoIcon.h StartMenuScene/SoloButton.h SongChooseScene/SongChoose.h GamePlayScene/PlayScene.h GamePlayScene/PlayEngine.h GamePlayScene/Note.h GamePlayScene/SheetMusic.h GamePlayScene/SheetMusicPlayer.h GamePlayScene/Dong.h GamePlayScene/Ka.h GamePlayScene/HitPoint.h GamePlayScene/Drum.h GamePlayScene/IconBad.h GamePlayScene/IconGood.h GamePlayScene/IconGreat.h GamePlayScene/PlayScore.h GamePlayScene/Combo.h GamePlayScene/PercentNow.h SongChooseScene/SongButton.h SongChooseScene/BackButton.h SongChooseScene/ChildSongButton.h TestTimer.h TestQTimer.h GamePlayScene/EscMenu.h ResultScene/ResultScene.h ResultScene/GamePlayResult.h ResultScene/ResultBackButton.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp GameView.cpp StartMenuScene/MainMenu.cpp SongChooseScene/SongChoose.cpp StartMenuScene/TaikoIcon.cpp StartMenuScene/SoloButton.cpp GamePlayScene/PlayScene.cpp GamePlayScene/PlayEngine.cpp GamePlayScene/Note.cpp GamePlayScene/SheetMusic.cpp GamePlayScene/SheetMusicPlayer.cpp GamePlayScene/Dong.cpp GamePlayScene/Ka.cpp GamePlayScene/HitPoint.cpp GamePlayScene/Drum.cpp GamePlayScene/IconBad.cpp GamePlayScene/IconGood.cpp GamePlayScene/IconGreat.cpp GamePlayScene/PlayScore.cpp GamePlayScene/Combo.cpp GamePlayScene/PercentNow.cpp SongChooseScene/SongButton.cpp SongChooseScene/BackButton.cpp SongChooseScene/ChildSongButton.cpp TestTimer.cpp TestQTimer.cpp GamePlayScene/EscMenu.cpp ResultScene/ResultScene.cpp ResultScene/GamePlayResult.cpp ResultScene/ResultBackButton.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents GameView.h StartMenuScene/MainMenu.h StartMenuScene/TaikoIcon.h StartMenuScene/SoloButton.h SongChooseScene/SongChoose.h GamePlayScene/PlayScene.h GamePlayScene/PlayEngine.h GamePlayScene/Note.h GamePlayScene/SheetMusic.h GamePlayScene/SheetMusicPlayer.h GamePlayScene/Dong.h GamePlayScene/Ka.h GamePlayScene/HitPoint.h GamePlayScene/Drum.h GamePlayScene/IconBad.h GamePlayScene/IconGood.h GamePlayScene/IconGreat.h GamePlayScene/PlayScore.h GamePlayScene/Combo.h GamePlayScene/PercentNow.h SongChooseScene/SongButton.h SongChooseScene/BackButton.h SongChooseScene/ChildSongButton.h TestTimer.h TestQTimer.h GamePlayScene/EscMenu.h ResultScene/ResultScene.h ResultScene/GamePlayResult.h ResultScene/ResultBackButton.h SongChooseScene/HighestScoreBox.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp GameView.cpp StartMenuScene/MainMenu.cpp SongChooseScene/SongChoose.cpp StartMenuScene/TaikoIcon.cpp StartMenuScene/SoloButton.cpp GamePlayScene/PlayScene.cpp GamePlayScene/PlayEngine.cpp GamePlayScene/Note.cpp GamePlayScene/SheetMusic.cpp GamePlayScene/SheetMusicPlayer.cpp GamePlayScene/Dong.cpp GamePlayScene/Ka.cpp GamePlayScene/HitPoint.cpp GamePlayScene/Drum.cpp GamePlayScene/IconBad.cpp GamePlayScene/IconGood.cpp GamePlayScene/IconGreat.cpp GamePlayScene/PlayScore.cpp GamePlayScene/Combo.cpp GamePlayScene/PercentNow.cpp SongChooseScene/SongButton.cpp SongChooseScene/BackButton.cpp SongChooseScene/ChildSongButton.cpp TestTimer.cpp TestQTimer.cpp GamePlayScene/EscMenu.cpp ResultScene/ResultScene.cpp ResultScene/GamePlayResult.cpp ResultScene/ResultBackButton.cpp SongChooseScene/HighestScoreBox.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -676,10 +680,8 @@ compiler_rcc_clean:
 compiler_moc_header_make_all: moc_GameView.cpp moc_TaikoIcon.cpp moc_SoloButton.cpp moc_SongChoose.cpp moc_PlayScene.cpp moc_PlayEngine.cpp moc_SheetMusicPlayer.cpp moc_Dong.cpp moc_Ka.cpp moc_HitPoint.cpp moc_Drum.cpp moc_IconBad.cpp moc_IconGood.cpp moc_IconGreat.cpp moc_PlayScore.cpp moc_Combo.cpp moc_PercentNow.cpp moc_SongButton.cpp moc_BackButton.cpp moc_ChildSongButton.cpp moc_TestQTimer.cpp moc_ResultBackButton.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_GameView.cpp moc_TaikoIcon.cpp moc_SoloButton.cpp moc_SongChoose.cpp moc_PlayScene.cpp moc_PlayEngine.cpp moc_SheetMusicPlayer.cpp moc_Dong.cpp moc_Ka.cpp moc_HitPoint.cpp moc_Drum.cpp moc_IconBad.cpp moc_IconGood.cpp moc_IconGreat.cpp moc_PlayScore.cpp moc_Combo.cpp moc_PercentNow.cpp moc_SongButton.cpp moc_BackButton.cpp moc_ChildSongButton.cpp moc_TestQTimer.cpp moc_ResultBackButton.cpp
-moc_GameView.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
-		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+moc_GameView.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
@@ -709,6 +711,10 @@ moc_GameView.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
@@ -731,6 +737,7 @@ moc_GameView.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpainter.h \
@@ -829,9 +836,6 @@ moc_GameView.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
 		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
@@ -839,6 +843,7 @@ moc_GameView.cpp: ../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		GamePlayScene/SheetMusicPlayer.h \
 		ResultScene/GamePlayResult.h \
 		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h \
 		GameView.h
 	/home/bj/Qt/5.6/gcc_64/bin/moc $(DEFINES) -I/home/bj/Qt/5.6/gcc_64/mkspecs/linux-g++ -I/home/bj/桌面/ElfVersion -I/home/bj/Qt/5.6/gcc_64/include -I/home/bj/Qt/5.6/gcc_64/include/QtMultimedia -I/home/bj/Qt/5.6/gcc_64/include/QtWidgets -I/home/bj/Qt/5.6/gcc_64/include/QtGui -I/home/bj/Qt/5.6/gcc_64/include/QtNetwork -I/home/bj/Qt/5.6/gcc_64/include/QtCore GameView.h -o moc_GameView.cpp
 
@@ -2972,6 +2977,9 @@ main.o: main.cpp ../../Qt/5.6/gcc_64/include/QtWidgets/QApplication \
 		../../Qt/5.6/gcc_64/include/QtGui/qguiapplication.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qinputmethod.h \
 		GameView.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
@@ -3022,9 +3030,6 @@ main.o: main.cpp ../../Qt/5.6/gcc_64/include/QtWidgets/QApplication \
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
 		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
@@ -3032,6 +3037,7 @@ main.o: main.cpp ../../Qt/5.6/gcc_64/include/QtWidgets/QApplication \
 		GamePlayScene/SheetMusicPlayer.h \
 		ResultScene/GamePlayResult.h \
 		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h \
 		TestTimer.h \
 		TestQTimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
@@ -3104,6 +3110,9 @@ GameView.o: GameView.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDebug \
 		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
 		GameView.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
@@ -3191,9 +3200,6 @@ GameView.o: GameView.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDebug \
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
 		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
@@ -3201,6 +3207,7 @@ GameView.o: GameView.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDebug \
 		GamePlayScene/SheetMusicPlayer.h \
 		ResultScene/GamePlayResult.h \
 		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h \
 		TestTimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GameView.o GameView.cpp
 
@@ -3332,6 +3339,9 @@ MainMenu.o: StartMenuScene/MainMenu.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
 		GameView.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpainter.h \
@@ -3362,16 +3372,14 @@ MainMenu.o: StartMenuScene/MainMenu.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
 		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
 		ResultScene/GamePlayResult.h \
-		ResultScene/ResultScene.h
+		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainMenu.o StartMenuScene/MainMenu.cpp
 
 SongChoose.o: SongChooseScene/SongChoose.cpp ../../Qt/5.6/gcc_64/include/QtGui/QBrush \
@@ -3671,7 +3679,8 @@ TaikoIcon.o: StartMenuScene/TaikoIcon.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPix
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
 		ResultScene/GamePlayResult.h \
-		ResultScene/ResultScene.h
+		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TaikoIcon.o StartMenuScene/TaikoIcon.cpp
 
 SoloButton.o: StartMenuScene/SoloButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPixmap \
@@ -3772,6 +3781,9 @@ SoloButton.o: StartMenuScene/SoloButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/QP
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
 		GameView.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpainter.h \
@@ -3831,16 +3843,14 @@ SoloButton.o: StartMenuScene/SoloButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/QP
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
 		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
 		ResultScene/GamePlayResult.h \
-		ResultScene/ResultScene.h
+		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SoloButton.o StartMenuScene/SoloButton.cpp
 
 PlayScene.o: GamePlayScene/PlayScene.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPen \
@@ -4010,7 +4020,8 @@ PlayScene.o: GamePlayScene/PlayScene.cpp ../../Qt/5.6/gcc_64/include/QtGui/QPen 
 		SongChooseScene/SongButton.h \
 		SongChooseScene/ChildSongButton.h \
 		SongChooseScene/BackButton.h \
-		ResultScene/ResultScene.h
+		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PlayScene.o GamePlayScene/PlayScene.cpp
 
 PlayEngine.o: GamePlayScene/PlayEngine.cpp ../../Qt/5.6/gcc_64/include/QtCore/QDebug \
@@ -4187,7 +4198,8 @@ PlayEngine.o: GamePlayScene/PlayEngine.cpp ../../Qt/5.6/gcc_64/include/QtCore/QD
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		ResultScene/GamePlayResult.h \
-		ResultScene/ResultScene.h
+		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PlayEngine.o GamePlayScene/PlayEngine.cpp
 
 Note.o: GamePlayScene/Note.cpp GamePlayScene/Note.h
@@ -5356,6 +5368,9 @@ SongButton.o: SongChooseScene/SongButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/Q
 		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
 		GameView.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtCore/QObject \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
@@ -5416,16 +5431,14 @@ SongButton.o: SongChooseScene/SongButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/Q
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
 		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
 		ResultScene/GamePlayResult.h \
-		ResultScene/ResultScene.h
+		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SongButton.o SongChooseScene/SongButton.cpp
 
 BackButton.o: SongChooseScene/BackButton.cpp ../../Qt/5.6/gcc_64/include/QtMultimedia/QSound \
@@ -5524,6 +5537,9 @@ BackButton.o: SongChooseScene/BackButton.cpp ../../Qt/5.6/gcc_64/include/QtMulti
 		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
 		GameView.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpainter.h \
@@ -5585,16 +5601,14 @@ BackButton.o: SongChooseScene/BackButton.cpp ../../Qt/5.6/gcc_64/include/QtMulti
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
 		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
 		GamePlayScene/Note.h \
 		GamePlayScene/SheetMusicPlayer.h \
 		ResultScene/GamePlayResult.h \
-		ResultScene/ResultScene.h
+		ResultScene/ResultScene.h \
+		ResultScene/ResultBackButton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o BackButton.o SongChooseScene/BackButton.cpp
 
 ChildSongButton.o: SongChooseScene/ChildSongButton.cpp ../../Qt/5.6/gcc_64/include/QtGui/QFont \
@@ -5954,10 +5968,15 @@ ResultScene.o: ResultScene/ResultScene.cpp ../../Qt/5.6/gcc_64/include/QtGui/QFo
 		../../Qt/5.6/gcc_64/include/QtGui/qbrush.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpen.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsTextItem \
-		ResultScene/GamePlayResult.h
+		ResultScene/GamePlayResult.h \
+		ResultScene/ResultBackButton.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QObject
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ResultScene.o ResultScene/ResultScene.cpp
 
-GamePlayResult.o: ResultScene/GamePlayResult.cpp ../../Qt/5.6/gcc_64/include/QtMultimedia/QSound \
+GamePlayResult.o: ResultScene/GamePlayResult.cpp ResultScene/GamePlayResult.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GamePlayResult.o ResultScene/GamePlayResult.cpp
+
+ResultBackButton.o: ResultScene/ResultBackButton.cpp ../../Qt/5.6/gcc_64/include/QtMultimedia/QSound \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qsound.h \
 		../../Qt/5.6/gcc_64/include/QtMultimedia/qtmultimediadefs.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
@@ -6053,6 +6072,9 @@ GamePlayResult.o: ResultScene/GamePlayResult.cpp ../../Qt/5.6/gcc_64/include/QtM
 		../../Qt/5.6/gcc_64/include/QtCore/qset.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontiguouscache.h \
 		GameView.h \
+		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
+		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsView \
 		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsview.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpainter.h \
@@ -6115,9 +6137,6 @@ GamePlayResult.o: ResultScene/GamePlayResult.cpp ../../Qt/5.6/gcc_64/include/QtM
 		GamePlayScene/PlayScore.h \
 		GamePlayScene/PercentNow.h \
 		GamePlayScene/PlayEngine.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QTimer \
-		../../Qt/5.6/gcc_64/include/QtCore/qtimer.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qbasictimer.h \
 		../../Qt/5.6/gcc_64/include/QtGui/QKeyEvent \
 		GamePlayScene/EscMenu.h \
 		GamePlayScene/SheetMusic.h \
@@ -6125,13 +6144,11 @@ GamePlayResult.o: ResultScene/GamePlayResult.cpp ../../Qt/5.6/gcc_64/include/QtM
 		GamePlayScene/SheetMusicPlayer.h \
 		ResultScene/GamePlayResult.h \
 		ResultScene/ResultScene.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GamePlayResult.o ResultScene/GamePlayResult.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ResultBackButton.o ResultScene/ResultBackButton.cpp
 
-ResultBackButton.o: ResultScene/ResultBackButton.cpp ResultScene/ResultBackButton.h \
-		../../Qt/5.6/gcc_64/include/QtCore/QObject \
-		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
-		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
+HighestScoreBox.o: SongChooseScene/HighestScoreBox.cpp SongChooseScene/HighestScoreBox.h \
+		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
+		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qglobal.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qconfig.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qfeatures.h \
@@ -6161,6 +6178,9 @@ ResultBackButton.o: ResultScene/ResultBackButton.cpp ResultScene/ResultBackButto
 		../../Qt/5.6/gcc_64/include/QtCore/qmutex.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qnumeric.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qversiontagging.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobject.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs.h \
+		../../Qt/5.6/gcc_64/include/QtCore/qnamespace.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qstring.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qchar.h \
@@ -6183,8 +6203,6 @@ ResultBackButton.o: ResultScene/ResultBackButton.cpp ResultScene/ResultBackButto
 		../../Qt/5.6/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qobject_impl.h \
-		../../Qt/5.6/gcc_64/include/QtWidgets/QGraphicsPixmapItem \
-		../../Qt/5.6/gcc_64/include/QtWidgets/qgraphicsitem.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qvariant.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qmap.h \
 		../../Qt/5.6/gcc_64/include/QtCore/qdebug.h \
@@ -6218,7 +6236,7 @@ ResultBackButton.o: ResultScene/ResultBackButton.cpp ResultScene/ResultBackButto
 		../../Qt/5.6/gcc_64/include/QtGui/qimage.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qpixelformat.h \
 		../../Qt/5.6/gcc_64/include/QtGui/qtransform.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ResultBackButton.o ResultScene/ResultBackButton.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o HighestScoreBox.o SongChooseScene/HighestScoreBox.cpp
 
 moc_GameView.o: moc_GameView.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_GameView.o moc_GameView.cpp

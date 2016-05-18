@@ -210,7 +210,7 @@ void SongChoose::loadSongButtons()
 
 
         SongButton * songButton = new SongButton(qSongName , qSongOrigin , songList.at(i));
-        songButton->setPos(490 , 110 + 70*i);
+        songButton->setPos(490 , 90 + 70*i);
         addItem(songButton);
         songButtonList.push_back(songButton);
         songButtonList.at(i)->index=i;

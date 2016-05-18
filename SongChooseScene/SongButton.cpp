@@ -37,6 +37,9 @@ SongButton::SongButton(QString buttonName  , QString songOrigin , string buttonO
     setPixmap(QPixmap("./GameData/DefaultResources/images/songButton.png"));
 
     setAcceptHoverEvents(true);
+
+    highestScoreBox = new HighestScoreBox(oveName);
+    highestScoreBox->setPos(10 , 90);
 }
 
 void SongButton::setDown()
@@ -51,6 +54,8 @@ void SongButton::setUp()
 
     isDown = false;
     setPixmap(QPixmap("./GameData/DefaultResources/images/songButton.png"));
+
+    scene()->removeItem(highestScoreBox);
 
     emit destroyChild();
 }
@@ -72,6 +77,8 @@ void SongButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
     ChildSongButton * childSongButton = new ChildSongButton(this);
     connect(this , SIGNAL(destroyChild()) , childSongButton , SLOT(destroySelf()));
     connect(childSongButton , SIGNAL(clicked()) , this , SLOT(gotoPlay()) );
+
+    scene()->addItem(highestScoreBox);
 
     emit clicked(index);
 

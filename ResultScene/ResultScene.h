@@ -37,6 +37,8 @@ class ResultScene : public QGraphicsScene
         ResultBackButton * backButton;
 
         void setResult();
+
+        void setScoreFile();
 };
 
 #endif // RESULTSCENE_H

@@ -8,6 +8,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
 #include "ChildSongButton.h"
+#include "HighestScoreBox.h"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ class SongButton : public QObject , public QGraphicsPixmapItem
         string oveName;
         QGraphicsTextItem * buttonText;
         QGraphicsTextItem * songOriginText;
+        HighestScoreBox * highestScoreBox;
 
         void setDown();
         void setUp();

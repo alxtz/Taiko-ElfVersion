@@ -42,7 +42,8 @@ SOURCES += main.cpp \
     GamePlayScene/EscMenu.cpp \
     ResultScene/ResultScene.cpp \
     ResultScene/GamePlayResult.cpp \
-    ResultScene/ResultBackButton.cpp
+    ResultScene/ResultBackButton.cpp \
+    SongChooseScene/HighestScoreBox.cpp
 
 
 HEADERS  += \
@@ -74,5 +75,6 @@ HEADERS  += \
     GamePlayScene/EscMenu.h \
     ResultScene/ResultScene.h \
     ResultScene/GamePlayResult.h \
-    ResultScene/ResultBackButton.h
+    ResultScene/ResultBackButton.h \
+    SongChooseScene/HighestScoreBox.h
 
