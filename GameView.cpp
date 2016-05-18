@@ -82,3 +82,11 @@ void GameView::exitResult()
 
     //delete resultScene;
 }
+
+void GameView::exitPlay()
+{
+    mainMenu = new MainMenu();
+    setScene(mainMenu);
+
+    delete playScene;
+}

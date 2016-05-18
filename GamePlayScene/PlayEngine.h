@@ -52,6 +52,8 @@ class PlayEngine : public QObject , public QGraphicsPixmapItem
         void disableEsc();
         void playMusic();
 
+        void closeEscMenu();
+
     signals:
         void hitKey(int);
         void doResult();

@@ -36,6 +36,8 @@ class GameView : public QGraphicsView
         void setLastPlayed(string oveName);
 
         void exitResult();
+
+        void exitPlay();
 };
 
 #endif // GAMEVIEW_H

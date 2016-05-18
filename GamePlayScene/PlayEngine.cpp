@@ -29,6 +29,7 @@ PlayEngine::PlayEngine(string oveName)
 
 
     escMenu = new EscMenu();
+    connect(escMenu->resumeButton , SIGNAL(clicked()) , this , SLOT(closeEscMenu()));
     isEsc = false;
 
     cout<<"目前的譜面資料夾名稱是"<<inputOve<<endl;
@@ -157,6 +158,16 @@ void PlayEngine::playMusic()
     BGMusic->play();
     //cout<<"檢查音樂開始的時間";
     //timer.fromLastTime();
+}
+
+void PlayEngine::closeEscMenu()
+{
+    qDebug()<<"關閉escMenu";
+    scene()->removeItem(escMenu);
+    moveTimerResume();
+    BGMusic->play();
+    isEsc = false;
+    sheetMusicPlayer->resume();
 }
 
 void PlayEngine::spawnDongKa(int type)
